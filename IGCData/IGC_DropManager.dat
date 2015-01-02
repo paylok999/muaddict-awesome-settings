@@ -1,0 +1,44 @@
+//############################################################
+//# -- INTERNATIONAL GAMING CENTER NETWORK
+//# -- www.igc-network.com
+//# -- (C) 2010-2014 IGC-Network (R)
+//# ---------------------------------------------------------
+//# -- Modify if you know what you do only!
+//# -- File is a part of IGCN Group MuOnline Server files.
+//############################################################
+
+// Item Skill Values [0: No Skill, 1: with Skill, -1: Random [Chance: 50/50]
+// Item Luck Values [0: no Luck, 1: with Luck, -1: Random [Chance: 50/50]
+// Item Option Values [0: No Option, 1: with Option, -1: Random [Chance: 50/50]
+// Item Exc Values
+//		0	= No Exc options, or sum of below values:
+//		1	= Mana recovery after Monster hunt +Mana/8
+//		2	= Health recovery after Monster hunt +HP/8
+//		4	= +7 Speed
+//		8	= More Damage +2%
+//		16	= More Damage +Level/20
+//		32	= Excellent Damage Rate +10%
+//		-1	= Random Options
+// --------------------------------------------------------
+//		63	= Full of Excellent
+// --------------------------------------------------------
+// Ancient (item must be added to set items (ancients), otherwise option will be ignored:
+//		0	= No Ancient
+//		5	= First Set type (+5 Stamina)
+//		6	= Second Set type (+5 Stamina)
+//		9	= First Set type (+10 Stamina)
+//		10	= Second Set type (+10 Stamina)
+// Map Number Values [Specified map Number or -1: All Maps]
+// Monster ID Values [Specified Monster Number or -1: All Monsters]
+// Min Monster Values [0 to 150 or -1: any (if set to -1 then Max Monster Level must be also -1)]
+// Max Monster Level Values [150: Max or -1: any (if set to -1 then Min Monster Level must be also -1)]
+// Item Durability Values [255: Max]
+
+// ============================================================================================================================================================================
+// ITEM   | ITEM   | MIN   | MAX   | ITEM   | ITEM |  ITEM   | ITEM | ITEM    | MAP     | MONSTER ID | MIN MONSTER       | MAX MONSTER	       | ITEM  	    | ITEM DROP
+// GROUP  | NUMBER | LEVEL | LEVEL | SKILL  | LUCK |  OPTION | EXC  | ANCIENT |	NUMBER  |            | LEVEL [DEFAULT 0] | LEVEL [DEFAULT 150] | DURABILITY | RATE [n/10000]
+// ============================================================================================================================================================================
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+0 // DO NOT REMOVE SECTION NUMBER
+
+end
