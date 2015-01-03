@@ -7,6 +7,10 @@ class AccountModel
 		return DB::table('character')->select('name')->where('AccountID', Auth::user()->username)->get();
 	}
 	
+	public function getCharacterDetailsByName($character)
+	{
+		return DB::table('character')->select('mlevel')->where('name', $character)->first();
+	}
 	public function getCoinsByUsername($username)
 	{
 		return DB::table('T_InGameShop_Point')->where('AccountID', $username)->first();

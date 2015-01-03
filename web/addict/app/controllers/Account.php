@@ -2,6 +2,8 @@
 
 class Account extends BaseController
 {
+	public $msstatreset = 2000;
+	
 	public function changePassword()
 	{
 		$postdata = Input::get();
@@ -95,5 +97,50 @@ class Account extends BaseController
 		//var_dump(Input::all());
 		//$this->account->getMemberAccountByUsername()
 		//return 1;
+	}
+	
+	public function resetMSReset()
+	{
+		$charname = Input::get();
+		$validator = Validator::make(
+			$charname,
+			array(
+				'charname' => 'required|min:6|max:10',
+			)
+		);
+		if($validator->fails()){
+			return 'Something went wrong. Please Check your inputs. Follow the guideline. reason: '. $validator->messages();
+			
+		}else{
+			$charinfo = $this->account->getCharacterDetailsByName($charname['charname']);
+			
+			$checkifonline = $this->account->checkAccountIfOnline(Auth::user()->username);
+			if($checkifonline->ConnectStat == 1){
+				return 'Your account is online. Please logout first in game.';
+			}else if($charinfo == NULL){
+				return 'Character not found. Please try again.';
+			}else if($charinfo->mlevel <= 0){
+				return 'Not enough level for master skill. Please choose different character';
+				
+			}else{
+				$currentcoins = $this->account->getCoinsByUsername(Auth::user()->username);
+				if($currentcoins->WCoinP < $this->msstatreset){
+					return 'You do not have this amount of coin. Please try again.';
+				}else{
+					//minus coin
+					$usercoin = $this->account->getCoinsByUsername(Auth::user()->username);
+					DB::table('T_InGameShop_Point')
+					->where('AccountID', $usercoin->AccountID)
+					->update(array('WCoinP' => $usercoin->WCoinP - $this->msstatreset));
+					
+					//reset msstat
+					DB::table('character')
+					->where('name', $charname['charname'])
+					->update(array('MagicList' => DB::raw('Convert(varbinary(60),NULL)'), 'mlPoint' => $charinfo->mlevel));
+					
+					return 1;
+				}
+			}
+		}
 	}
 }

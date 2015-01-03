@@ -1,3 +1,5 @@
+var charname;
+
 $(document).ready(function() {
     $('#multipleForm').bootstrapValidator({
         feedbackIcons: {
@@ -248,6 +250,43 @@ $(document).ready(function() {
 	$(document).on('click', '.change-password', function(e){
 		e.preventDefault();
 		$('#changepasswordModal').modal({show:true});
+	})
+	
+	/**
+	* show modal sms reset
+	*/
+	$(document).on('click', '#resetms-submit', function(e){
+		e.preventDefault();
+		$('.btnreset').hide();
+		$('#ajax-loader-resetms').show();
+		data = {
+			charname : charname
+		}
+		$.ajax({
+			type: 'POST',
+			url: '/account/msreset',
+			data: data,
+			success: function(data){
+				if(data == 1){
+					alert('Your character MS Level has been successfully reset!');
+					location.reload();
+				}else{
+					alert(data);
+					$('.btnreset').show();
+					$('#ajax-loader-resetms').hide();
+				}
+			}	
+		});
+	})
+	
+	/**
+	*stat reset button
+	*/
+	$(document).on('click', '.ms-reset', function(e){
+		e.preventDefault();
+		charname = $(this).attr('id');
+		$('#charname-container').text($(this).attr('id'));
+		$('#resetmsModal').modal({show:true});
 	})
 	
 	/**

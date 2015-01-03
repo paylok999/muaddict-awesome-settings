@@ -31,4 +31,5 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('account/characters', 'Account@getAllCharacter');
 	Route::get('account/coins', 'Account@getCoinTransferForm');
 	Route::post('account/coins', 'Account@transferCoin');
+	Route::post('/account/msreset', 'Account@resetMSReset');
 });

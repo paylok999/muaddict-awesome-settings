@@ -53,19 +53,19 @@
 				<a href="#account" title="Account" class="account-in dropdown-toggle" data-toggle="dropdown" aria-expanded="false">MY ACCOUNT</a>
 					<ul class="dropdown-menu">
 					<li class="dropdown-header">Welcome {{$userinfo->username}}</li>
-				  <li><a href="javascript:void:(0)" class="change-password">Change Password</a></li>
-				  <li><a href="#">Change Lock Code</a></li>
+				  <li><a href="javascript:void(0)" class="change-password">Change Password</a></li>
+				  <li><a href="javascript:void(0)">Change Lock Code</a></li>
 				  <li><a href="javascript:void(0)" class="transfer-coin">Transfer WcoinP</a></li>
 				  <li class="divider"></li>
 				  <li class="dropdown-header">Character Management</li>
 				  @foreach($characters as $character)
 				  <li><a href="#">{{$character->name}}</a>
 					<ul class="dropdown-menu">
-					  <li><a href="#">Status</a></li>
-					  <li><a href="#">Unstock Character</a></li>
-					  <li><a href="#">Stat Reset</a></li>
-					  <li><a href="#">Master Stat Reset</a></li>
-					  <li class="disabled"><a class="disabled" href="#">Delete Chracter</a></li>
+					  <li><a href="javascript:void(0)">Status</a></li>
+					  <li><a href="javascript:void(0)">Unstock Character</a></li>
+					  <li><a href="javascript:void(0)">Stat Reset</a></li>
+					  <li><a href="javascript:void(0)" class="ms-reset" id="{{$character->name}}">Master Stat Reset</a></li>
+					  <li class="disabled"><a class="disabled" href="javascript:void(0)">Delete Chracter</a></li>
 					</ul>
 				  </li>
 				  @endforeach

@@ -110,3 +110,31 @@
   </div>
 </div>
 <!--end transfercoin modal -->
+
+<!-- start MS reset modal -->
+<div class="modal fade" id="resetmsModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Master Stat Reset</h4>
+      </div>
+      <div class="modal-body" style="text-align:center">
+		<p>This will module will reset the character name </p>
+		<h2 id="charname-container"></h2>
+		<p>This is a premium server and will cost you 2000 WCoinP and is irreversable and non refundable.</p>
+		<p>Press "Reset Me" to reset the Master skill level of character name above or cancel to cancel this transaction</p>
+	<button type="submit" class="btn btn-primary btnreset" id="resetms-submit">Reset Me!</button>
+		<button type="button" class="btn btn-danger btnreset" data-dismiss="modal">Cancel</button>
+			
+		<div class="form-group ajax-loader" id="ajax-loader-resetms">
+			<span><img src="{{ URL::to('/') }}/img/loading-spin.svg">&nbsp;Resetting MS Level. Please wait...</span>
+		</div>
+      </div>
+      <div class="modal-footer">
+		<p style="text-align:center">You need to logout your account in order to proceed with this service</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end MS reset modal -->
