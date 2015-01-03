@@ -234,6 +234,7 @@ $(document).ready(function() {
 				}
 			});
 	});
+	
 	/**
 	* show modal login
 	*/
@@ -249,6 +250,24 @@ $(document).ready(function() {
 		$('#changepasswordModal').modal({show:true});
 	})
 	
+	/**
+	* show modal transfercoin
+	*/
+	$(document).on('click', '.transfer-coin', function(e){
+		e.preventDefault();
+		$('#resultmodules').hide();
+		$('#ajax-loader-tranfercoin').show();
+		$('#transfercoinModal').modal({show:true});
+		$.ajax({
+			type: 'GET',
+			url: '/account/coins',
+			success: function(data){
+					$('#resultmodules').html(data);
+					$('#resultmodules').show();
+					$('#ajax-loader-tranfercoin').hide();
+			}	
+		});
+	})
 	
 	/**
 	* Init page by hash

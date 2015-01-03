@@ -5,6 +5,12 @@
 	<div id="home-container" class="body-content">
 		<h1> Announcement</h1>
 		<div class="announcement-wrapper">
+		<h2>New features has been added</h2>
+		<h3>Author: Gatsby</h3> 
+		<h3>Date: January 3, 2015</h3>
+			<p>Good day Mutizen, Transfer of WCoinP on our site has been enable. You may transfer your CoinP like crazy. Also, /offtrade command was enable for you to trade your items via WCoinC using your store. Master reset and other modules will be enable tomorrow, so stay tuned! Let me know if you got issue with the said modules. <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>. Other technical concern, you may also contact me.</p>
+		</div>
+		<div class="announcement-wrapper">
 		<h2>Account related and technical concern</h2>
 		<h3>Author: Gatsby</h3> 
 		<h3>Date: December 29, 2014</h3>

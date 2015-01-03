@@ -4,6 +4,35 @@ body{
 	position:relative;
 	text-shadow: 1px 1px 1px #000;
 }
+.navbar{
+	border-radius: 0 !important;
+	margin:0;
+}
+.navbar-brand{
+	display:none;
+}
+.navbar-collapse{
+	max-width: 1000px;
+	width:100%;
+	margin: 0 auto;
+}
+.navbar-default{
+	background-color:#241F1F;
+	border:none; 
+}
+.dropdown-menu{
+	background-color:#241F1F;
+	border:none; 
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus{
+	background-color:#444242 !important;
+}
+.navbar-nav>li>a{
+	padding: 15px 40px;
+}
+.navbar-nav>li>.dropdown-menu{
+	width:100% !important;
+}
 #main-header{
     position: fixed;
     max-width: 1920px;
@@ -12,13 +41,15 @@ body{
 	z-index:999;
 }
 a{
-	color:red;
+	color:#FC5656 !important;
 	font-weight:bold;
-	letter-spacing:1px;
+	text
 }
 a:hover{
-	color:rgb(255, 98, 98);
+	color:#FFA1A1 !important;
+	font-weight:bold;
 }
+
 .account-link{
 	color:rgb(219, 152, 28);
 }
@@ -41,7 +72,7 @@ a:hover{
 	text-align:center;
 }
 #container-padding{
-	padding-top:257px;
+	padding-top:275px;
 
 }
 #main-container{
@@ -69,7 +100,7 @@ a:hover{
 	width:100%;
 }
 #navigation-border{
-	border-bottom: solid 1px #ccc;
+	border-bottom:solid 2px #000;
 }
 .navigation{
 	max-width: 1024px;
@@ -223,6 +254,14 @@ a:hover{
 }
 #ajax-loader-login{
 
+}
+
+#ajax-loader-tranfercoin{
+	text-align:center;
+}
+#ajax-loader-tranfercoin img{
+	max-width:100px;
+	width:100%;
 }
 /*end ajax loader*/
 @media all and (max-width: 767px){

@@ -8,9 +8,12 @@
 <link rel="icon" type="image/ico" href="{{ URL::to('/') }}/img/favicon.ico">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
+<link rel="stylesheet" href="http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.css">
 <link rel="stylesheet" href="{{ URL::to('/') }}/css/style.css">
 
 <script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://vadikom.github.io/smartmenus/src/jquery.smartmenus.js"></script>
+<script src="http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
 <script src="{{ URL::to('/') }}/js/scripts.js"></script>
@@ -22,31 +25,93 @@
 <div class="container" id="navigation-img">
 	<img src="{{ URL::to('/') }}/img/main-banner.jpg">
 </div>
+
 <div class="container" id="navigation-border">
-	<ul class="navigation">
-		<a href="#home" class="home-link" title="Home Page"><li>HOME</li></a>
-		<a href="#register" class="register-link" title="Register with us"><li>REGISTER</li></a>
-		<a href="#download" class="download-link" title="Download Client"><li>DOWNLOADS</li></a>
-		<a href="#rankings" class="rankings-link" title="Player Rankings"><li>RANKINGS</li></a>
-		<a href="#forums" title="Community"><li>FORUMS</li></a>
-		@if($login == 1)
-		<li>
-		<a href="#account" title="Account" class="account-in dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-			MY ACCOUNT <span class="caret"></span>
-		</a>
-			<ul class="dropdown-menu" role="menu" id="userpanel">
-				<li><a href="javascript:void:(0)">{{$userinfo->username}}</a></li>
-				<li class="divider"></li>
-				<li><a href="javascript:void:(0)" class="change-password">Change Password</a></li>
-				<li><a href="#">Character Management</a></li>
-				<li class="divider"></li>
-				<li><a href="/logout">Logout</a></li>
+
+		<!-- Static navbar -->
+	<div class="navbar navbar-default" role="navigation">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="#">MU Philippines</a>
+		  </div>
+		<div class="navbar-collapse collapse">
+
+		<!-- Left nav -->
+		<ul class="nav navbar-nav">
+			<li class="mainlink"><a href="#home" class="home-link" title="Home Page">HOME</a></li>
+			<li class="mainlink"><a href="#register" class="register-link" title="Register with us">REGISTER</a></li>
+			<li class="mainlink"><a href="#download" class="download-link" title="Download Client">DOWNLOADS</a></li>
+			<li class="mainlink"><a href="#rankings" class="rankings-link" title="Player Rankings">RANKINGS</a></li>
+			<li class="mainlink"><a href="#forums" title="Community">FORUMS</a></li>
+			@if($login == 1)
+			<li class="mainlink">
+				<a href="#account" title="Account" class="account-in dropdown-toggle" data-toggle="dropdown" aria-expanded="false">MY ACCOUNT</a>
+					<ul class="dropdown-menu">
+					<li class="dropdown-header">Welcome {{$userinfo->username}}</li>
+				  <li><a href="javascript:void:(0)" class="change-password">Change Password</a></li>
+				  <li><a href="#">Change Lock Code</a></li>
+				  <li><a href="javascript:void(0)" class="transfer-coin">Transfer WcoinP</a></li>
+				  <li class="divider"></li>
+				  <li class="dropdown-header">Character Management</li>
+				  @foreach($characters as $character)
+				  <li><a href="#">{{$character->name}}</a>
+					<ul class="dropdown-menu">
+					  <li><a href="#">Status</a></li>
+					  <li><a href="#">Unstock Character</a></li>
+					  <li><a href="#">Stat Reset</a></li>
+					  <li><a href="#">Master Stat Reset</a></li>
+					  <li class="disabled"><a class="disabled" href="#">Delete Chracter</a></li>
+					</ul>
+				  </li>
+				  @endforeach
+				  <li class="divider"></li>
+				  <li><a href="/logout">Logout</a></li>
+				</ul>
+				
+			</li>
+			@else
+			<li class="mainlink"><a href="#account" class="account-link" title="Account">ACCOUNT</a></li>
+			@endif
+		</ul>
+
+		<!-- Right nav -->
+		<!--<ul class="nav navbar-nav navbar-right">
+		  <li>
+			<a href="#account" title="Account" class="account-in dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+				MY ACCOUNT <span class="caret"></span>
+			</a>
+			</li>
+		  <li><a href="bootstrap-navbar-static-top.html">Static top</a></li>
+		  <li><a href="bootstrap-navbar-fixed-top.html">Fixed top</a></li>
+		  <li><a href="bootstrap-navbar-fixed-bottom.html">Fixed bottom</a></li>
+		  <li><a href="#">Dropdown</a>
+			<ul class="dropdown-menu">
+			  <li><a href="#">Action</a></li>
+			  <li><a href="#">Another action</a></li>
+			  <li><a href="#">Something else here</a></li>
+			  <li class="divider"></li>
+			  <li class="dropdown-header">Nav header</li>
+			  <li><a href="#">A sub menu</a>
+				<ul class="dropdown-menu">
+				  <li><a href="#">Action</a></li>
+				  <li><a href="#">Another action</a></li>
+				  <li><a href="#">Something else here</a></li>
+				  <li class="disabled"><a class="disabled" href="#">Disabled item</a></li>
+				  <li><a href="#">One more link</a></li>
+				</ul>
+			  </li>
+			  <li><a href="#">A separated link</a></li>
 			</ul>
-		</li>
-		@else
-		<a href="#account" class="account-link" title="Account"><li>ACCOUNT</li></a>
-		@endif
-	</ul>
+		  </li>
+		</ul>-->
+
+	  </div><!--/.nav-collapse -->
+	</div>
 </div>
 
 </div>
