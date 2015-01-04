@@ -294,3 +294,14 @@ a:hover{
 	}
 }
 
+@media all and (max-width: 520px){
+	#main-header{
+		position:relative;
+	}
+	#container-padding{
+		display:none;
+	}
+	.navbar-nav .open .dropdown-menu{
+		text-align:center;
+	}
+}
