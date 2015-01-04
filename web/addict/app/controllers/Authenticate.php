@@ -8,7 +8,7 @@ class Authenticate extends BaseController
 		$validator = Validator::make(
 			$data,
 			array(
-				'username' => 'required|min:6|max:10',
+				'username' => 'required|min:5|max:10',
 				'password' => 'required|min:6|max:10',
 			)
 		);

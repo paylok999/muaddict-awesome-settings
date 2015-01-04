@@ -263,6 +263,25 @@ a:hover{
 	max-width:100px;
 	width:100%;
 }
+
+/*character*/
+#resultcharacter p{
+	margin:0;
+	margin-top:10px;
+}
+.characterinfo{
+	border-bottom:dotted 1px #ccc;
+	margin: 0px 40px;
+	padding: 5px 0px;
+}
+
+.characterinfo .text-left{
+	padding-left:10% !important;
+}
+.characterinfo .text-right{
+	padding-right:10% !important;
+}
+/*end character*/
 /*end ajax loader*/
 @media all and (max-width: 767px){
 	.col-md-6{

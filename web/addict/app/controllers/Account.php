@@ -3,6 +3,7 @@
 class Account extends BaseController
 {
 	public $msstatreset = 2000;
+	public $statreset = 1000;
 	
 	public function changePassword()
 	{
@@ -142,5 +143,84 @@ class Account extends BaseController
 				}
 			}
 		}
+	}
+	/*character stat reset*/
+	public function resetStats()
+	{
+		$charname = Input::get();
+		$validator = Validator::make(
+			$charname,
+			array(
+				'charname' => 'required|min:6|max:10',
+			)
+		);
+		if($validator->fails()){
+			return 'Something went wrong. Please Check your inputs. Follow the guideline. reason: '. $validator->messages();
+			
+		}else{
+			$charinfo = $this->account->getCharacterInfoByName($charname['charname']);
+			
+			$checkifonline = $this->account->checkAccountIfOnline(Auth::user()->username);
+			if($checkifonline->ConnectStat == 1){
+				return 'Your account is online. Please logout first in game.';
+			}else if($charinfo == NULL){
+				return 'Character not found. Please try again.';
+			}else if($charinfo->clevel <= 150){
+				return 'Not enough level for reset. Atleast level 150 is allowed. Please choose different character';
+				
+			}else{
+				$currentcoins = $this->account->getCoinsByUsername(Auth::user()->username);
+				if($currentcoins->WCoinP < $this->statreset){
+					return 'You do not have this amount of coin. Please try again.';
+				}else{
+					//minus coin
+					$usercoin = $this->account->getCoinsByUsername(Auth::user()->username);
+					DB::table('T_InGameShop_Point')
+					->where('AccountID', $usercoin->AccountID)
+					->update(array('WCoinP' => $usercoin->WCoinP - $this->statreset));
+					
+					$totalstats = ($charinfo->strength + $charinfo->dexterity + $charinfo->vitality + $charinfo->energy + $charinfo->leadership + $charinfo->leveluppoint) - 100;
+					
+					//reset stats
+					DB::table('character')
+					->where('name', $charname['charname'])
+					->update(array('strength' => 25, 'dexterity' => 25, 'vitality' => 25, 'energy' => 25 , 'leveluppoint' => $totalstats));
+					
+					return 1;
+				}
+			}
+		}
+	}
+	/*show character details*/
+	public function getCharacterDetails($charname)
+	{
+		$this->data['character'] = $charname;
+		$this->data['info'] = $this->account->getCharacterInfoByName($charname);
+		$this->data['pk'] = $this->account->getPKCountByCharname($charname);
+		return View::make('account/character', $this->data);
+	}
+	
+	public function unstockCharacter()
+	{
+		$charname = Input::get();
+		$validator = Validator::make(
+			$charname,
+			array(
+				'charname' => 'required|min:6|max:10',
+			)
+		);
+		if($validator->fails()){
+			return 'Something went wrong. Please Check your inputs. Follow the guideline. reason: '. $validator->messages();
+			
+		}else{
+			$checkifonline = $this->account->checkAccountIfOnline(Auth::user()->username);
+			if($checkifonline->ConnectStat == 1){
+				return 'Your account is online. Please logout first in game.';
+			}else{
+				DB::table('character')->where('name', $charname['charname'])->update(array('mapnumber' => 0, 'MapPosX' => 140, 'MapPosY' => 127));
+				return 1;
+			}
+		}
+		
 	}
 }

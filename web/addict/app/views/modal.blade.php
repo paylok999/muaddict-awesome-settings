@@ -117,7 +117,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Master Stat Reset</h4>
+        <h4 class="modal-title" id="myModalLabel">Master Stat Reset - Please read before proceeding</h4>
       </div>
       <div class="modal-body" style="text-align:center">
 		<p>This will module will reset the character name </p>
@@ -138,3 +138,83 @@
   </div>
 </div>
 <!--end MS reset modal -->
+
+
+<!-- start stat reset modal -->
+<div class="modal fade" id="resetstatModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Stat Reset - Please read before proceeding</h4>
+      </div>
+      <div class="modal-body" style="text-align:center">
+		<p>This will module will reset the stats character name </p>
+		<h2 id="charnamestats-container"></h2>
+		<p>This is a premium server and will cost you 1000 WCoinP and is irreversable and non refundable.</p>
+		<p>Press "Reset Me" to reset the Stats skill level of character name above or cancel to cancel this transaction</p>
+	<button type="submit" class="btn btn-primary btnresetstat" id="resetstat-submit">Reset Me!</button>
+		<button type="button" class="btn btn-danger btnresetstat" data-dismiss="modal">Cancel</button>
+			
+		<div class="form-group ajax-loader" id="ajax-loader-resetstat">
+			<span><img src="{{ URL::to('/') }}/img/loading-spin.svg">&nbsp;Resetting Stats. Please wait...</span>
+		</div>
+      </div>
+      <div class="modal-footer">
+		<p style="text-align:center">You need to logout your account in order to proceed with this service</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end stat reset modal -->
+
+<!-- start transfercoin modal -->
+<div class="modal fade" id="characterstatusModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Character Status</h4>
+      </div>
+      <div class="modal-body" style="text-align:center">
+		<div id="resultcharacter">
+		</div>
+		<div class="form-group ajax-loader" id="ajax-loader-characterstatus">
+			<span><img src="{{ URL::to('/') }}/img/loading-spin.svg" style="max-width:100px;width:100%">&nbsp;Loading Character. Please wait...</span>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end transfercoin modal -->
+
+
+<!-- start unstock modal -->
+<div class="modal fade" id="unstockModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Unstock Character</h4>
+      </div>
+      <div class="modal-body" style="text-align:center">
+	  <p>This will module will move your character to lorencia </p>
+		<h2 id="unstockchar-container"></h2>
+		<p>Use this feature if you cannot open your character or is trap on map that is not existing.</p>
+		<p>Press "Unstock" to move your character to lorencia.</p>
+		<button type="submit" class="btn btn-primary btnreset" id="unstockchar-submit">Unstock!</button>
+
+		<div class="form-group ajax-loader" id="ajax-loader-unstock">
+			<span><img src="{{ URL::to('/') }}/img/loading-spin.svg">&nbsp;Moving Character. Please wait...</span>
+		</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end unstock modal -->

@@ -61,9 +61,9 @@
 				  @foreach($characters as $character)
 				  <li><a href="#">{{$character->name}}</a>
 					<ul class="dropdown-menu">
-					  <li><a href="javascript:void(0)">Status</a></li>
-					  <li><a href="javascript:void(0)">Unstock Character</a></li>
-					  <li><a href="javascript:void(0)">Stat Reset</a></li>
+					  <li><a href="javascript:void(0)" class="character-status" id="{{$character->name}}">Status</a></li>
+					  <li><a href="javascript:void(0)" class="unstock-character" id="{{$character->name}}">Unstock Character</a></li>
+					  <li><a href="javascript:void(0)" class="stat-reset" id="{{$character->name}}">Stat Reset</a></li>
 					  <li><a href="javascript:void(0)" class="ms-reset" id="{{$character->name}}">Master Stat Reset</a></li>
 					  <li class="disabled"><a class="disabled" href="javascript:void(0)">Delete Chracter</a></li>
 					</ul>

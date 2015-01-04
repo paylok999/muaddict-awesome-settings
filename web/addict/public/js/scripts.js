@@ -105,9 +105,9 @@ $(document).ready(function() {
                         message: 'Username is required'
                     },
 					stringLength: {
-						min: 6,
+						min: 5,
 						max: 10,
-						message: 'Username should be minimum of 6 and max of 10 characters'
+						message: 'Username should be minimum of 5 and max of 10 characters'
 					}
                 }
             },
@@ -253,7 +253,64 @@ $(document).ready(function() {
 	})
 	
 	/**
-	* show modal sms reset
+	* show modal unstock char
+	*/
+	$(document).on('click', '.unstock-character', function(e){
+		e.preventDefault();
+		charname = $(this).attr('id');
+		$('#ajax-loader-characterstatus').show();
+		$('#unstockchar-container').text(charname);
+		$('#unstockModal').modal({show:true});
+	})
+	/**
+	* Confirm unstock
+	*/
+	$(document).on('click', '#unstockchar-submit', function(e){
+		e.preventDefault();
+		$('#unstockchar-submit').hide();
+		$('#ajax-loader-unstock').show();
+		data = {
+			charname : charname
+		}
+		$.ajax({
+			type: 'POST',
+			url: '/account/unstock',
+			data: data,
+			success: function(data){
+				if(data == 1){
+					alert('Your character has been unstock successfully!');
+					location.reload();
+				}else{
+					alert(data);
+					$('#unstockchar-submit').show();
+					$('#ajax-loader-unstock').hide();
+				}
+			}	
+		});
+	})
+	
+	/**
+	* show modal character status
+	*/
+	$(document).on('click', '.character-status', function(e){
+		e.preventDefault();
+		charname = $(this).attr('id');
+		$('#ajax-loader-characterstatus').show();
+		$('#resultcharacter').hide();
+		$('#characterstatusModal').modal({show:true});
+		console.log(charname);
+		$.ajax({
+			type: 'GET',
+			url: '/account/character/'+charname,
+			success: function(data){
+					$('#resultcharacter').html(data);
+					$('#resultcharacter').show();
+					$('#ajax-loader-characterstatus').hide();
+			}	
+		});
+	})
+	/**
+	* confirm ms stat reset
 	*/
 	$(document).on('click', '#resetms-submit', function(e){
 		e.preventDefault();
@@ -280,7 +337,7 @@ $(document).ready(function() {
 	})
 	
 	/**
-	*stat reset button
+	*ms stat reset button modal
 	*/
 	$(document).on('click', '.ms-reset', function(e){
 		e.preventDefault();
@@ -289,6 +346,42 @@ $(document).ready(function() {
 		$('#resetmsModal').modal({show:true});
 	})
 	
+	/**
+	* stat reset button
+	*/
+	$(document).on('click', '.stat-reset', function(e){
+		e.preventDefault();
+		charname = $(this).attr('id');
+		$('#charnamestats-container').text($(this).attr('id'));
+		$('#resetstatModal').modal({show:true});
+	})
+	
+	/**
+	* confirm ms stat reset
+	*/
+	$(document).on('click', '#resetstat-submit', function(e){
+		e.preventDefault();
+		$('.btnresetstat').hide();
+		$('#ajax-loader-resetstat').show();
+		data = {
+			charname : charname
+		}
+		$.ajax({
+			type: 'POST',
+			url: '/account/statreset',
+			data: data,
+			success: function(data){
+				if(data == 1){
+					alert('Your character Stats has been successfully reset!');
+					location.reload();
+				}else{
+					alert(data);
+					$('.btnresetstat').show();
+					$('#ajax-loader-resetstat').hide();
+				}
+			}	
+		});
+	})
 	/**
 	* show modal transfercoin
 	*/

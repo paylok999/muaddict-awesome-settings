@@ -11,6 +11,37 @@ class AccountModel
 	{
 		return DB::table('character')->select('mlevel')->where('name', $character)->first();
 	}
+	
+	public function getCharacterInfoByName($character)
+	{
+		return DB::table('character')
+		->select(
+			'mlevel', 
+			'mlpoint',
+			'class', 
+			'clevel', 
+			'leveluppoint', 
+			'strength', 
+			'dexterity', 
+			'vitality', 
+			'leadership', 
+			'energy', 
+			'money', 
+			'winduels', 
+			'loseduels'
+		)
+		->where('name', $character)->first();
+	}
+	
+	public function getPKCountByCharname($charname)
+	{
+		return DB::table('C_PlayerKiller_Info')
+			->select(DB::raw('top 1 count(victim) as victim, killer'))
+			->where('killer', $charname)
+			->groupBy('killer')
+			->orderBy('victim', 'desc')
+			->get();
+	}
 	public function getCoinsByUsername($username)
 	{
 		return DB::table('T_InGameShop_Point')->where('AccountID', $username)->first();

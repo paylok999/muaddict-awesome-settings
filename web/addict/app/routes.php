@@ -28,8 +28,11 @@ Route::get('character/rankings/{order?}', 'Character@getTop');
 Route::group(array('before' => 'auth'), function()
 {
 	Route::post('account/changepassword', 'Account@changePassword');
+	Route::get('account/character/{charname}', 'Account@getCharacterDetails');
 	Route::get('account/characters', 'Account@getAllCharacter');
 	Route::get('account/coins', 'Account@getCoinTransferForm');
 	Route::post('account/coins', 'Account@transferCoin');
 	Route::post('/account/msreset', 'Account@resetMSReset');
+	Route::post('/account/statreset', 'Account@resetStats');
+	Route::post('/account/unstock', 'Account@unstockCharacter');
 });
