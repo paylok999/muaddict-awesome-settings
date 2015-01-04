@@ -41,7 +41,7 @@
 <p>PK Record</p>
 <div class="row characterinfo">
 	<div class="col-md-6 text-right">Victim</div>
-	<div class="col-md-6 text-left">{{$pk[0]->victim}}</div>
+	<div class="col-md-6 text-left">{{{$pk[0]->victim or '0'}}}</div>
 </div>
 <p>Others</p>
 <div class="row characterinfo">

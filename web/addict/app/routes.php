@@ -36,3 +36,10 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/account/statreset', 'Account@resetStats');
 	Route::post('/account/unstock', 'Account@unstockCharacter');
 });
+
+
+App::missing(function($exception)
+{
+	return Redirect::to('/');
+	
+});
