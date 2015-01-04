@@ -38,6 +38,7 @@ class MemberUserProvider implements UserProviderInterface
 				'id' => $data->memb_guid,
 				'username' => $data->memb___id,
 				'password' => $data->memb__pwd,
+				'bloc_code' => $data->bloc_code,
 			);
 		}catch(\Exception $e){
 			throw new Exception('Invalid credential. Please try again.');
@@ -48,12 +49,14 @@ class MemberUserProvider implements UserProviderInterface
 
      public function validateCredentials(Illuminate\Auth\UserInterface $user, array $credentials)
      {
-		if($user->password == $credentials['password']){
-			
-			return true;
-		}else{
-			
+		if($user->password != $credentials['password']){
 			throw new Exception('Invalid credential. Please try again.');
+			
+		}else if($user->bloc_code == 1){
+			throw new Exception('Account Block. Please contact Support - Gatsby');
+			
+		}else{
+			return true;
 		}
      }
 	 
