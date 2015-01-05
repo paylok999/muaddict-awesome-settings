@@ -47,7 +47,7 @@
 			<li class="mainlink"><a href="#register" class="register-link" title="Register with us">REGISTER</a></li>
 			<li class="mainlink"><a href="#download" class="download-link" title="Download Client">DOWNLOADS</a></li>
 			<li class="mainlink"><a href="#rankings" class="rankings-link" title="Player Rankings">RANKINGS</a></li>
-			<li class="mainlink"><a href="#forums" title="Community">FORUMS</a></li>
+			<li class="mainlink"><a href="javascript:void(0)" title="Community">FORUMS</a></li>
 			@if($login == 1)
 			<li class="mainlink">
 				<a href="#account" title="Account" class="account-in dropdown-toggle" data-toggle="dropdown" aria-expanded="false">MY ACCOUNT</a>

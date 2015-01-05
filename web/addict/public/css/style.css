@@ -121,7 +121,7 @@ a:hover{
 
 /* Home*/
 #home-container{
-	height:100vh;
+	height:100%;
 	background-color:rgb(181, 61, 61);
 	display:none;
 }
@@ -169,7 +169,7 @@ a:hover{
 /*download*/
 #download-container{
 	display:none;
-	height:100vh;
+	height:100%;
 	background-color:rgb(129, 86, 125);
 }
 

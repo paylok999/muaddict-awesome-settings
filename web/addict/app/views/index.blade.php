@@ -5,6 +5,12 @@
 	<div id="home-container" class="body-content">
 		<h1> Announcement</h1>
 		<div class="announcement-wrapper">
+		<h2>Premium service activated</h2>
+		<h3>Author: Gatsby</h3> 
+		<h3>Date: January 5, 2015</h3>
+			<p>Good day Mutizen, Master Level and Stat Reset is now ready to use. Additionally, you may now unstock your character and check its detail such as stats, player kill, pvp, etc. through our site. Account concern, contact me <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>. Other technical concern, you may also contact me.</p>
+		</div>
+		<div class="announcement-wrapper">
 		<h2>New features has been added</h2>
 		<h3>Author: Gatsby</h3> 
 		<h3>Date: January 3, 2015</h3>
