@@ -44,6 +44,57 @@ class Register extends BaseController
 				);
 				
 				DB::table('memb_info')->insert($userinput);
+				
+				$seals = array(
+					'AccountID' => Input::get('username'),
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 10,
+					'UniqueID3' => 15,
+					'InventoryType' => 1,
+				);
+				
+				$sealshealing = array(
+					'AccountID' => Input::get('username'),
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 38,
+					'UniqueID3' => 63,
+					'InventoryType' => 1,
+				);
+				
+				$sealspet = array(
+					'AccountID' => Input::get('username'),
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 61,
+					'UniqueID3' => 102,
+					'InventoryType' => 1,
+				);
+				
+				$sealsring = array(
+					'AccountID' => Input::get('username'),
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 59,
+					'UniqueID3' => 98,
+					'InventoryType' => 1,
+				);
+				
+				$masterseals = array(
+					'AccountID' => Input::get('username'),
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 51,
+					'UniqueID3' => 81,
+					'InventoryType' => 1,
+				);
+				
+				DB::table('T_InGameShop_Items')->insert($seals);
+				DB::table('T_InGameShop_Items')->insert($sealshealing);
+				DB::table('T_InGameShop_Items')->insert($sealspet);
+				DB::table('T_InGameShop_Items')->insert($sealsring);
+				DB::table('T_InGameShop_Items')->insert($masterseals);
 				return 1;
 			}
 		}
@@ -174,6 +225,24 @@ DB::table('memb_info')
 			//echo $onlinecoin->wcoinc.'<br>';
 			
 			
+		}
+		
+	}
+	
+	public function changeOldPassword()
+	{
+		$oldlogins = DB::table('memb_stat')->whereRaw("ConnectTM <= '2014-12-28'")->get();
+		//var_dump(count($oldlogins));die();
+		foreach($oldlogins as $oldlogin){
+			
+			//echo $oldlogin->memb___id.'<br>';
+			$accounts = DB::table('memb_info')->select('memb___id', 'memb__pwd')->where('memb___id', $oldlogin->memb___id)->get();
+			foreach($accounts as $account){
+				//echo $account->memb___id.' '. $account->memb__pwd.'<br>';
+				/*DB::table('memb_info')
+				->where('memb___id', $account->memb___id)
+				->update(array('memb__pwd' => 'pig'.$account->memb__pwd.'sisiw'));*/
+			}
 		}
 		
 	}

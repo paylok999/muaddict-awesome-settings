@@ -94,7 +94,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Tranfer Coin </h4>
+        <h4 class="modal-title" id="myModalLabel">Transfer Coin </h4>
       </div>
       <div class="modal-body">
 		<div id="resultmodules">

@@ -65,7 +65,7 @@
 					  <li><a href="javascript:void(0)" class="unstock-character" id="{{$character->name}}">Unstock Character</a></li>
 					  <li><a href="javascript:void(0)" class="stat-reset" id="{{$character->name}}">Stat Reset</a></li>
 					  <li><a href="javascript:void(0)" class="ms-reset" id="{{$character->name}}">Master Stat Reset</a></li>
-					  <li class="disabled"><a class="disabled" href="javascript:void(0)">Delete Chracter</a></li>
+					  <li class="disabled"><a class="disabled" href="javascript:void(0)">Delete Character</a></li>
 					</ul>
 				  </li>
 				  @endforeach
