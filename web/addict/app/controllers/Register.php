@@ -246,4 +246,10 @@ DB::table('memb_info')
 		}
 		
 	}
+	
+	public function addseals($username)
+	{
+		$account = new AccountModel;
+		return $account->addStartingSeals($username);
+	}
 }

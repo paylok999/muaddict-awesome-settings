@@ -19,8 +19,9 @@ Route::get('/', function()
 Route::get('/', 'Home@showIndex');
 Route::get('register', 'Home@showIndex');
 Route::post('register', 'Register@addUser');
-Route::get('pluscoin', 'Register@addCoin');
-Route::get('oldlogin', 'Register@changeOldPassword');
+//Route::get('pluscoin', 'Register@addCoin');
+//Route::get('oldlogin', 'Register@changeOldPassword');
+//Route::get('addseals/{username}', 'Register@addseals');
 Route::post('authenticate', 'Authenticate@login');
 Route::get('logout', 'Authenticate@logout');
 Route::get('character/rankings/{order?}', 'Character@getTop');

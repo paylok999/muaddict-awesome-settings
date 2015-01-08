@@ -56,4 +56,58 @@ class AccountModel
 	{	
 		return DB::table('memb_info')->where('memb___id', $username)->first();
 	}
+	
+	public function addStartingSeals($username)
+	{
+		$seals = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 10,
+					'UniqueID3' => 15,
+					'InventoryType' => 1,
+				);
+				
+				$sealshealing = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 38,
+					'UniqueID3' => 63,
+					'InventoryType' => 1,
+				);
+				
+				$sealspet = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 61,
+					'UniqueID3' => 102,
+					'InventoryType' => 1,
+				);
+				
+				$sealsring = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 59,
+					'UniqueID3' => 98,
+					'InventoryType' => 1,
+				);
+				
+				$masterseals = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 51,
+					'UniqueID3' => 81,
+					'InventoryType' => 1,
+				);
+				
+				DB::table('T_InGameShop_Items')->insert($seals);
+				DB::table('T_InGameShop_Items')->insert($sealshealing);
+				DB::table('T_InGameShop_Items')->insert($sealspet);
+				DB::table('T_InGameShop_Items')->insert($sealsring);
+				DB::table('T_InGameShop_Items')->insert($masterseals);
+	}
 }

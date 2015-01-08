@@ -11,4 +11,4 @@
 // then below nicknames can connect only, Current GameServer only,
 
 "admin01"
-"admin02"
+"paylokasd1"

@@ -366,7 +366,8 @@ end
 
 -- BuffID: 174, 175, 176, 177 - (Fire, Frost, Tornado, Bind)
 function ElementalDebuffGetDuration(CharacterLevel)
-	local Duration = CharacterLevel / 4 + 20
+	--local Duration = CharacterLevel / 4 + 20
+	local Duration = 10
 	
 	return Duration
 end
