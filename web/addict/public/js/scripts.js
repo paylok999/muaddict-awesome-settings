@@ -414,6 +414,7 @@ $(document).ready(function() {
 		getPlayerRankings('mlevel');
 		getPlayerPkCount('pkcount');
 		getPlayerDuelwin('winduels');
+		getPlayer2015Top('2015top');
 	}
 	var divelements = $( hashpage + '-container');
 	var negativeheight = divelements.height() + 100;
@@ -464,6 +465,7 @@ $(document).ready(function() {
 		getPlayerRankings('mlevel');
 		getPlayerPkCount('pkcount');
 		getPlayerDuelwin('winduels');
+		getPlayer2015Top('2015top');
 		var divelements = $('#rankings-container');
 		var negativeheight = divelements.height() + 100;
 		divelements.css('margin-top', '-' + negativeheight + 'px');
@@ -472,6 +474,41 @@ $(document).ready(function() {
 		divelements.show();
 		divelements.animate({ "margin-top": "0px" }, 500);
 	});
+	
+	/**
+	*Show hide rightnav
+	*/
+	$(document).on('click', '.hidethis', function() {
+		$('#hideme').hide();
+		$('#showme').show();
+		  $( "#rightnav-container" ).animate({
+			right: "-300px",
+		 }, 500, function() {
+			// Animation complete.
+		});
+		
+		$( "#showme, #hideme" ).animate({
+			right: "0",
+		 }, 500, function() {
+			// Animation complete.
+		});
+		
+	});
+	$(document).on('click', '.showthis', function() {
+		$('#hideme').show();
+		$('#showme').hide();
+		  $( "#rightnav-container" ).animate({
+			right: "0",
+		 }, 500, function() {
+			// Animation complete.
+		});
+		$( "#showme, #hideme" ).animate({
+			right: "290",
+		 }, 500, function() {
+			// Animation complete.
+		});
+	});
+
 });
 
 function getPlayerRankings(rankings){
@@ -485,6 +522,7 @@ function getPlayerRankings(rankings){
 			<div class="col-md-6 ranking-level">' + element.mlevel + '</div>\
 			</div>';
 			$(returndata).appendTo('.' + rankings);
+			$('#' + rankings + '-loader').hide();
 		});
 					
 		}
@@ -503,6 +541,7 @@ function getPlayerPkCount(rankings){
 			<div class="col-md-6 ranking-level">' + element.victim + '</div>\
 			</div>';
 			$(returndata).appendTo('.' + rankings);
+			$('#' + rankings + '-loader').hide();
 		});
 					
 		}
@@ -522,8 +561,30 @@ function getPlayerDuelwin(rankings){
 			<div class="col-md-4 ranking-level">' + element.loseduels + '</div>\
 			</div>';
 			$(returndata).appendTo('.' + rankings);
+			$('#' + rankings + '-loader').hide();
 		});
 					
+		}
+	});
+	
+}
+
+
+function getPlayer2015Top(rankings){
+	$.ajax({
+		type: 'GET',
+		url: '/character/rankings2015/'+rankings,
+		success: function(data){
+			$.each(data, function(index, element){
+			var returndata = '<div class="row ranking-details-container">\
+			<div class="col-md-4 ranking-name">' + element.name + '</div>\
+			<div class="col-md-4 ranking-level">' + element.clevel + '</div>\
+			<div class="col-md-4 ranking-level">' + element.mlevel + '</div>\
+			</div>';
+			$(returndata).appendTo('.' + rankings);
+			$('#' + rankings + '-loader').hide();
+		});
+			
 		}
 	});
 	

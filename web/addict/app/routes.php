@@ -21,10 +21,11 @@ Route::get('register', 'Home@showIndex');
 Route::post('register', 'Register@addUser');
 //Route::get('pluscoin', 'Register@addCoin');
 //Route::get('oldlogin', 'Register@changeOldPassword');
-//Route::get('addseals/{username}', 'Register@addseals');
+Route::get('addseals/{username}', 'Register@addseals');
 Route::post('authenticate', 'Authenticate@login');
 Route::get('logout', 'Authenticate@logout');
 Route::get('character/rankings/{order?}', 'Character@getTop');
+Route::get('character/rankings2015/{order?}', 'Character@get2015TopPlayer');
 
 /*authenticated user */
 Route::group(array('before' => 'auth'), function()
@@ -37,6 +38,9 @@ Route::group(array('before' => 'auth'), function()
 	Route::post('/account/msreset', 'Account@resetMSReset');
 	Route::post('/account/statreset', 'Account@resetStats');
 	Route::post('/account/unstock', 'Account@unstockCharacter');
+	
+	/*shopping*/
+	Route::get('/shop', 'Shop@show');
 });
 
 

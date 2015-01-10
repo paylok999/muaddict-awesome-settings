@@ -205,10 +205,21 @@ a:hover{
 #rankings-container .rankings-area{
 	margin: 0 auto;
 	min-width:320px;
-	width:33%;
+	width:24%;
 	padding:0;
 	float: none;
 	display: inline-block;
+}
+#rankings-container .rankings-area img{
+	width:100%;
+	max-width:100px;
+}
+#rankings-container .rankings-area span{
+	display:block;
+	padding:10px;
+}
+#rankings-container .rankings-area .rankings-loader{
+	margin-top:30px;
 }
 /*end rankings*/
 /*user*/
@@ -283,6 +294,50 @@ a:hover{
 }
 /*end character*/
 /*end ajax loader*/
+
+/*side navigation*/
+.showhide-rightnav{
+	position: fixed;
+	z-index: 999;
+	right: 290px;
+	background-color: rgb(171, 170, 170);
+	/* margin-left: -110px; */
+	padding: 5px;
+	border-radius: 5px 0px 0px 5px;
+	top: 11px;
+	width: 65px;
+	text-align: center;
+}
+#rightnav-container{
+	position:fixed;
+	max-width:300px;
+	width:100%;
+	height:100%;
+	right:0;
+	background-color:rgb(53, 8, 27);
+	z-index:9999;
+	border-left:solid 2px #ada9a9;
+	text-align:center;
+	overflow-y:scroll;
+}
+
+#rightnav h1{
+	font-size:25px;
+}
+#rightnav h2{
+	font-size:18px;
+	background-color:rgb(98, 55, 55);
+	padding:10px;
+}
+#rightnav .text{
+	font-size:12px;
+}
+
+#rightnav .row{
+	border-bottom:dotted 1px #ccc;
+	margin:0;
+	padding:5px 0;
+}
 @media all and (max-width: 767px){
 	.col-md-6{
 		width:49% !important;

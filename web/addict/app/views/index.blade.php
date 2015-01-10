@@ -5,6 +5,19 @@
 	<div id="home-container" class="body-content">
 		<h1> Announcement</h1>
 		<div class="announcement-wrapper">
+		<h2>Weekend Warrior</h2>
+		<h3>Author: Gatsby</h3> 
+		<h3>Date: January 9, 2015</h3>
+			<p>Good day Mutizen, As our community grows, we decided to put a weekend warrior every weekend. So what is weekend warrior? Every weekend, there woul be a boost on experience and drop rates.
+			<ul>
+			<li>100% Experience Bonus to all maps</li>
+			<li>100% Drop rates Bonus to all maps</li>
+			</ul>
+			<p>Bonus start at 7pm Friday night and will end 12am Monday Morning</p>
+			<p>So what are you waiting for? Get online now!</p>
+			<p>Account concern, contact me <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>. Other technical concern, you may also contact me.</p>
+		</div>
+		<div class="announcement-wrapper">
 		<h2>Premium service activated</h2>
 		<h3>Author: Gatsby</h3> 
 		<h3>Date: January 5, 2015</h3>
@@ -125,26 +138,51 @@
 		<h1>Top 20 Players</h1>
 		<p>Please wait atleast 10 minutes to propagate your scores</p>
 		<div class="row rankings-wrapper">
-			 <div class="col-md-4 rankings-area mlevel">
+			 <div class="col-md-3 rankings-area mlevel">
 				<h3>Master Level</h3>
 					<div class="row ranking-details-container">
 						<div class="col-md-6 ranking-name">Name</div>
 						<div class="col-md-6 ranking-name">MS Level</div>
 					</div>
+					<div class="rankings-loader" id="mlevel-loader">
+						<img src="{{ URL::to('/') }}/img/loading-spin.svg">
+						<span>Loading...</span>
+					</div>
 				</div>
-			 <div class="col-md-4 rankings-area pkcount">
+			 <div class="col-md-3 rankings-area pkcount">
 				<h3>PK Count</h3>
 					<div class="row ranking-details-container">
 						<div class="col-md-6 ranking-name">Killer</div>
 						<div class="col-md-6 ranking-name">Victims</div>
 					</div>
+					<div class="rankings-loader" id="pkcount-loader">
+						<img src="{{ URL::to('/') }}/img/loading-spin.svg">
+						<span>Loading...</span>
+					</div>
 				</div>
-			 <div class="col-md-4 rankings-area winduels">
+			 <div class="col-md-3 rankings-area winduels">
 			 <h3>Duel Master</h3>
 					<div class="row ranking-details-container">
 						<div class="col-md-4 ranking-name">Name</div>
 						<div class="col-md-4 ranking-name">Wins</div>
 						<div class="col-md-4 ranking-name">Loses</div>
+					</div>
+					<div class="rankings-loader" id="winduels-loader">
+						<img src="{{ URL::to('/') }}/img/loading-spin.svg">
+						<span>Loading...</span>
+					</div>
+			 </div>
+			 <div class="col-md-3 rankings-area 2015top">
+			 <h3>2015 Top Players</h3>
+					
+					<div class="row ranking-details-container">
+						<div class="col-md-4 ranking-name">Name</div>
+						<div class="col-md-4 ranking-name">Level </div>
+						<div class="col-md-4 ranking-name">MS Level</div>
+					</div>
+					<div class="rankings-loader" id="2015top-loader">
+						<img src="{{ URL::to('/') }}/img/loading-spin.svg">
+						<span>Loading...</span>
 					</div>
 			 </div>
 		</div>

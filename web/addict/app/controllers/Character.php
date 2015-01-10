@@ -14,7 +14,7 @@ class Character extends BaseController
 			->select(DB::raw('TOP 20 name,mlevel, winduels, loseduels, pkcount'))
 			->where('ctlcode', 0)
 			->orderBy($order, 'desc')
-			->remember(10)
+			//->remember(10)
 			->get();
 		}else{
 			return DB::table('C_PlayerKiller_Info')
@@ -24,6 +24,21 @@ class Character extends BaseController
 			->remember(10)
 			->get();
 			
+		}
+	}
+	
+	public function get2015TopPlayer($order)
+	{
+		if($order == '2015top'){
+			return DB::table('character')
+			->select(DB::raw('TOP 20 name,mlevel, clevel'))
+			->where('ctlcode', 0)
+			->where('mdate','>=', '2015')
+			->orderBy('clevel', 'desc')
+			->orderBy('mlevel', 'desc')
+			//->remember(10)
+			->get();
+
 		}
 	}
 

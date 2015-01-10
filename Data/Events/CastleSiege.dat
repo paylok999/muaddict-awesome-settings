@@ -30,8 +30,8 @@ end
 	4		5		0		0		// Idle
 	5		5		12		0		// Castle Attack Guild Notification
 	6		5		19		0		// Ready For Castle Siege
-	7		6		19		0		// Castle Siege Start
-	8		6		23		0		// Castle Siege End
+	7		6		20		0		// Castle Siege Start
+	8		6		22		0		// Castle Siege End
 	9		7		0		0		// End of Cycle
 end
 
