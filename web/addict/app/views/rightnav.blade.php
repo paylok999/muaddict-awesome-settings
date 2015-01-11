@@ -42,6 +42,35 @@
 		<div class="col-sm-6 text text-right">Jewel Drop Rates</div>
 		<div class="col-sm-6 text text-left">5%</div>
 	</div>
+	<h2>Starting Kits</h2>
+	<div class="row">
+		<div class="col-sm-6 text text-right">Seal of Wealth</div>
+		<div class="col-sm-6 text text-left">7Days</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text text-right">Seal of Healing</div>
+		<div class="col-sm-6 text text-left">7Days</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text text-right">Skeleton Pet</div>
+		<div class="col-sm-6 text text-left">7Days</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text text-right">Skeleton Ring</div>
+		<div class="col-sm-6 text text-left">7Days</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text text-right">MS Seal of Wealth</div>
+		<div class="col-sm-6 text text-left">7Days</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text text-right">Star of Sacred Birth</div>
+		<div class="col-sm-6 text text-left">Exc items +3 to +10</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-6 text text-right">Drops In</div>
+		<div class="col-sm-6 text text-left">Lorencia to Atlans2</div>
+	</div>
 	<h2>Characters</h2>
 	<div class="row">
 		<div class="col-sm-6 text text-right">Max Stats</div>

@@ -54,6 +54,23 @@
 	display:inline-block;
 }
 </style>
+<script>
+$('#hideme').hide();
+$('#showme').show();
+$( "#rightnav-container" ).animate({
+	right: "-300px",
+}, 0, function() {
+	// Animation complete.
+});
+		
+$( "#showme, #hideme" ).animate({
+	right: "0",
+}, 0, function() {
+	// Animation complete.
+});
+		
+
+</script>
 <div class="container" id="main-container">
 	<div id="shop-welcome">
 		<h1>MU Philippines Online Shopping</h1>
@@ -66,114 +83,72 @@
 		<div class="item-box">
 			<div class="row" id="item-header">
 				<div class="col-md-2 item-info">Product Name</div>
-				<div class="col-md-4 item-info">Product Description</div>
+				<div class="col-md-5 item-info">Product Description</div>
 				<div class="col-md-2 item-info">Price</div>
 				<div class="col-md-2 item-info">Quantity</div>
 				<div class="col-md-1 item-info">Total</div>
-				<div class="col-md-1 item-info">Add/Remove</div>
+				<!--<div class="col-md-1 item-info">Add/Remove</div>-->
 			</div>
-			<div class="row item-wrapper" id="starter-kit">
-				<div class="col-md-2 items">WCoin Starter Kit</div>
-				<div class="col-md-4 items">Starking kit package consist of 300WcoinP and 1000WCoinC</div>
-				<div class="col-md-2 items">300 PHP</div>
+			<form action="/shop" method="post">
+			@foreach($shoppingitems as $key => $item)
+			<div class="row item-wrapper" id="{{$item->id}}" price="{{$item->itemprice }}">
+				<div class="col-md-2 items">{{$item->itemlist}}</div>
+				<div class="col-md-5 items">{{$item->itemdescription}}</div>
+				<div class="col-md-2 items">{{number_format($item->itemprice)}} PHP</div>
 				<div class="col-md-2 items">
-					<input class="form-control quantity" type="text" value="1"> 
+					<input class="form-control quantity" type="text" value="0"> 
 					<a href="javascript:void(0)"><span class="glyphicon glyphicon-plus addminus addme">&nbsp;</span></a>
 					<a href="javascript:void(0)"><span class="glyphicon glyphicon-minus addminus minusme">&nbsp;</span></a>
 				</div>
-				<div class="col-md-1 items">300 PHP</div>
-				<div class="col-md-1 buttons"><button class="btn btn-primary">Add</button></div>
+				<input type="hidden" class="cartnumber" name="cartnumber[{{$item->id}}]" value="{{$item->id}}">
+				<input type="hidden" class="cartcount" name="cartcount[{{$item->id}}]">
+				<div class="col-md-1 items totalpice">0</div>
 			</div>
-			<div class="row item-wrapper" id="starter-elite">
-				<div class="col-md-2 items">WCoin Starter Kit Elite</div>
-				<div class="col-md-4 items">Starking kit elite package consist of 500WcoinP and 2000WCoinC</div>
-				<div class="col-md-2 items">500 PHP</div>
-				<div class="col-md-2 items">
-					<input class="form-control quantity" type="text" value="1"> 
-					<a href="javascript:void(0)"><span class="glyphicon glyphicon-plus addminus addme">&nbsp;</span></a>
-					<a href="javascript:void(0)"><span class="glyphicon glyphicon-minus addminus minusme">&nbsp;</span></a>
-				</div>
-				<div class="col-md-1 items">500 PHP</div>
-				<div class="col-md-1"><button class="btn btn-primary buttons">Add</button></div>
-			</div>
-			<div class="row item-wrapper" id="starter-premium">
-				<div class="col-md-2 items">WCoin Starter Kit Premium</div>
-				<div class="col-md-4 items">Starking kit elite package consist of 1000WcoinP and 5000WCoinC</div>
-				<div class="col-md-2 items">500 PHP</div>
-				<div class="col-md-2 items">
-					<input class="form-control quantity" type="text" value="1"> 
-					<a href="javascript:void(0)"><span class="glyphicon glyphicon-plus addminus addme">&nbsp;</span></a>
-					<a href="javascript:void(0)"><span class="glyphicon glyphicon-minus addminus minusme">&nbsp;</span></a>
-				</div>
-				<div class="col-md-1 items">1000 PHP</div>
-				<div class="col-md-1"><button class="btn btn-primary buttons">Add</button></div>
-			</div>
-			<div class="row item-wrapper">
-				<div class="col-md-2 items">Stack of Jewels of Bless</div>
-				<div class="col-md-4 items">30 Pieces Jewels of Bless</div>
-				<div class="col-md-2 items">200 PHP</div>
-				<div class="col-md-2 items">1</div>
-				<div class="col-md-1 items">200 PHP</div>
-				<div class="col-md-1 items">Soon!</div>
-			</div>
-			<div class="row item-wrapper">
-				<div class="col-md-2 items">Stack of Jewels of Soul</div>
-				<div class="col-md-4 items">30 Pieces Jewels of Souls</div>
-				<div class="col-md-2 items">100 PHP</div>
-				<div class="col-md-2 items">1</div>
-				<div class="col-md-1 items">100 PHP</div>
-				<div class="col-md-1 items">Soon!</div>
-			</div>
-			<div class="row item-wrapper">
-				<div class="col-md-2 items">Stack of Jewels of Chaos</div>
-				<div class="col-md-4 items">30 Pieces Jewels of Chaos</div>
-				<div class="col-md-2 items">300 PHP</div>
-				<div class="col-md-2 items">1</div>
-				<div class="col-md-1 items">300 PHP</div>
-				<div class="col-md-1 items">Soon!</div>
-			</div>
-			<div class="row item-wrapper">
-				<div class="col-md-2 items">Stack of Jewels of Life</div>
-				<div class="col-md-4 items">30 Pieces Jewels of Life</div>
-				<div class="col-md-2 items">400 PHP</div>
-				<div class="col-md-2 items">1</div>
-				<div class="col-md-1 items">400 PHP</div>
-				<div class="col-md-1 items">Soon!</div>
-			</div>
-			<div class="row item-wrapper">
-				<div class="col-md-2 items">Stack of Jewels of Harmony</div>
-				<div class="col-md-4 items">30 Pieces Jewels of Harmony</div>
-				<div class="col-md-2 items">400 PHP</div>
-				<div class="col-md-2 items">1</div>
-				<div class="col-md-1 items">400 PHP</div>
-				<div class="col-md-1 items">Soon!</div>
-			</div>
+			@endforeach
 			<div style="max-width:150px; text-align:right;margin:20px; float:right">
-				<p>Checkout With</p>
-				<a href=""><img src="http://beta.cambridgesdachurch.co.uk/wp-content/uploads/2014/06/paypal-donate-21.png?w=300" style="width:100%"></a>
+				<button class="btn btn-primary">Continue to Checkout</button>
 			</div>
+			</div>
+			</form>
 			<div style="clear:both"></div>
 		</div>
 	</div>
 </div>
 
 <script>
+var cartnumber;
+
 $(function(){
 	//add
 	$(document).on('click', '.addme', function(){
 		items = $(this);
 		var itemid = items.parent().parent().parent().attr('id');
+		var itemprice = items.parent().parent().parent().attr('price');
 		var currentquantity = $('#'+itemid +'  .quantity').val();
-		$('#'+itemid +'  .quantity').val(parseInt(currentquantity) + 1);
+		var totalquantity = parseInt(currentquantity) + 1;
+		$('#'+itemid +'  .quantity').val(totalquantity);
+		$('#'+itemid +'  .cartcount').val(totalquantity);
+		
+		var currenttotalprice = $('#'+itemid +'  .totalpice').text();
+		$('#'+itemid +'  .totalpice').html(parseInt(currenttotalprice) + parseInt(itemprice));
 		console.log(itemid);
+		//console.log(itemprice);
+		//console.log(totalquantity);
+		
 	});
 	//minus
 	$(document).on('click', '.minusme', function(){
 		items = $(this);
 		var itemid = items.parent().parent().parent().attr('id');
+		var itemprice = items.parent().parent().parent().attr('price');
 		var currentquantity = $('#'+itemid +'  .quantity').val();
+		var totalquantity = parseInt(currentquantity) - 1;
 		if(currentquantity >=1){
-			$('#'+itemid +'  .quantity').val(parseInt(currentquantity) - 1);
+			$('#'+itemid +'  .quantity').val(totalquantity);
+			$('#'+itemid +'  .cartnumber').val(totalquantity);
+			$('#'+itemid +'  .cartcount').val(totalquantity);
+			var currenttotalprice = $('#'+itemid +'  .totalpice').text();
+			$('#'+itemid +'  .totalpice').html(parseInt(currenttotalprice) - parseInt(itemprice));
 		}
 		console.log(itemid);
 	});
