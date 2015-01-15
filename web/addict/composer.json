@@ -5,8 +5,15 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.2.*",
+		"mews/captcha": "1.0.*"
 	},
+	"repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/mauris/captcha"
+        }
+    ],
 	"autoload": {
 		"classmap": [
 			"app/commands",

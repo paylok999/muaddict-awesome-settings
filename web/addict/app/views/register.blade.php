@@ -46,6 +46,12 @@
             <input class="form-control" type="text" name="secreta" />
         </div>
     </div>
+	<div class="form-group">
+		<label class="col-sm-4 control-label">Captcha</label>
+         <div class="col-sm-5">
+            {{HTML::image(Captcha::img(), 'Captcha image')}}
+        </div>
+    </div>
     <div class="form-group">
         <div class="col-sm-9 col-sm-offset-4">
             <button type="submit" class="btn btn-default" id="regform-submit">Register</button>

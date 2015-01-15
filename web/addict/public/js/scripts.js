@@ -136,8 +136,9 @@ $(document).ready(function() {
 			data = {
 				username : $("[name='username']", form).val(),
 				password : $("[name='password']", form).val(),
+				captcha : $("[name='captcha']", form).val(),
 			}
-		
+			console.log(data.captcha);
 			$.ajax({
 				type: 'POST',
 				url: '/authenticate',

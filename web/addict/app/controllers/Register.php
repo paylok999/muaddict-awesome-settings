@@ -10,6 +10,8 @@ class Register extends BaseController
 	
 	public function addUser()
 	{
+		
+		
 		$postdata = Input::get();
 		
 		$validator = Validator::make(

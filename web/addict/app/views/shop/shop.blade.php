@@ -157,3 +157,8 @@ $(function(){
 	
 });
 </script>
+
+@include('footer')
+@include('modal')
+</body>
+</html>

@@ -7,3 +7,7 @@
 		<p>Thank you for donating! Rest assured that the money you donate will go to the good of the server</p>
 	</div>
 </div>
+@include('footer')
+@include('modal')
+</body>
+</html>

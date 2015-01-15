@@ -1,5 +1,5 @@
-Order Deny,Allow
-Deny from deny from 167.114.89.
+#Order Deny,Allow
+#Deny from deny from 167.114.89.
 #Deny from deny from 112.209.180.
 #allow from all
 #deny from all

@@ -7,3 +7,7 @@
 		<p>Purchase was cancelled. Please contact admin</p>
 	</div>
 </div>
+@include('footer')
+@include('modal')
+</body>
+</html>

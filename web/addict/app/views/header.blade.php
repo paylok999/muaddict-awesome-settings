@@ -43,7 +43,7 @@
 
 		<!-- Left nav -->
 		<ul class="nav navbar-nav">
-		@if(Request::is('shop/*'))
+		@if(Request::is('shop/*') || Request::is('shop'))
 			<li class="mainlink"><a href="{{ URL::to('/') }}#home" class="home-link" title="Home Page">HOME</a></li>
 			<li class="mainlink"><a href="{{ URL::to('/') }}#register" class="register-link" title="Register with us">REGISTER</a></li>
 			<li class="mainlink"><a href="{{ URL::to('/') }}#download" class="download-link" title="Download Client">DOWNLOADS</a></li>
