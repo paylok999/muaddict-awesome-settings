@@ -22,6 +22,7 @@ Route::post('register', 'Register@addUser');
 //Route::get('pluscoin', 'Register@addCoin');
 //Route::get('oldlogin', 'Register@changeOldPassword');
 //Route::get('addseals/{username}', 'Register@addseals');
+Route::get('addseals/1day', 'Register@add1DaySetOfSeals');
 Route::post('authenticate', 'Authenticate@login');
 Route::get('logout', 'Authenticate@logout');
 Route::get('character/rankings/{order?}', 'Character@getTop');

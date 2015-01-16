@@ -17,7 +17,7 @@ class BaseController extends Controller {
 		}else{
 			$this->data['login'] = 0;
 		}
-		$this->data['onlinecount'] = count($this->getAllOnline()) + 0;
+		$this->data['onlinecount'] = count($this->getAllOnline()) + 20;
 	}
 	/**
 	 * Setup the layout used by the controller.

@@ -106,7 +106,7 @@ class Account extends BaseController
 		$validator = Validator::make(
 			$charname,
 			array(
-				'charname' => 'required|min:6|max:10',
+				'charname' => 'required|min:4|max:10',
 			)
 		);
 		if($validator->fails()){
@@ -151,7 +151,7 @@ class Account extends BaseController
 		$validator = Validator::make(
 			$charname,
 			array(
-				'charname' => 'required|min:6|max:10',
+				'charname' => 'required|min:4|max:10',
 			)
 		);
 		if($validator->fails()){

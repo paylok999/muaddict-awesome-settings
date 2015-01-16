@@ -110,4 +110,40 @@ class AccountModel
 				DB::table('T_InGameShop_Items')->insert($sealsring);
 				DB::table('T_InGameShop_Items')->insert($masterseals);
 	}
+	
+	public function add1DaySeals($username)
+	{
+		$masterseals = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 51,
+					'UniqueID3' => 80,
+					'InventoryType' => 1,
+				);
+				
+				$sealspet = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 61,
+					'UniqueID3' => 101,
+					'InventoryType' => 1,
+				);
+				
+				$sealsring = array(
+					'AccountID' => $username,
+					'AuthCode' =>0,
+					'UniqueID1' => 673,
+					'UniqueID2' => 59,
+					'UniqueID3' => 97,
+					'InventoryType' => 1,
+				);
+			
+				
+				DB::table('T_InGameShop_Items')->insert($masterseals);
+				DB::table('T_InGameShop_Items')->insert($sealspet);
+				DB::table('T_InGameShop_Items')->insert($sealsring);
+			
+	}
 }
