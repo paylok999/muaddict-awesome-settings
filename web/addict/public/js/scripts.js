@@ -1,5 +1,5 @@
 var charname;
-
+var suburl = '/index.php';
 $(document).ready(function() {
     $('#multipleForm').bootstrapValidator({
         feedbackIcons: {
@@ -72,7 +72,7 @@ $(document).ready(function() {
 		
 			$.ajax({
 				type: 'POST',
-				url: '/register',
+				url: suburl + '/register',
 				data: data,
 				success: function(data){
 					if(data == 1){
@@ -141,7 +141,7 @@ $(document).ready(function() {
 			console.log(data.captcha);
 			$.ajax({
 				type: 'POST',
-				url: '/authenticate',
+				url: suburl + '/authenticate',
 				data: data,
 				success: function(data){
 					$('#ajax-loader-login').show();
@@ -302,7 +302,7 @@ $(document).ready(function() {
 		console.log(charname);
 		$.ajax({
 			type: 'GET',
-			url: '/account/character/'+charname,
+			url: suburl + '/account/character/'+charname,
 			success: function(data){
 					$('#resultcharacter').html(data);
 					$('#resultcharacter').show();
@@ -322,7 +322,7 @@ $(document).ready(function() {
 		}
 		$.ajax({
 			type: 'POST',
-			url: '/account/msreset',
+			url: suburl + '/account/msreset',
 			data: data,
 			success: function(data){
 				if(data == 1){
@@ -369,7 +369,7 @@ $(document).ready(function() {
 		}
 		$.ajax({
 			type: 'POST',
-			url: '/account/statreset',
+			url: suburl + '/account/statreset',
 			data: data,
 			success: function(data){
 				if(data == 1){
@@ -393,7 +393,7 @@ $(document).ready(function() {
 		$('#transfercoinModal').modal({show:true});
 		$.ajax({
 			type: 'GET',
-			url: '/account/coins',
+			url: suburl + '/account/coins',
 			success: function(data){
 					$('#resultmodules').html(data);
 					$('#resultmodules').show();
@@ -515,7 +515,7 @@ $(document).ready(function() {
 function getPlayerRankings(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings/'+rankings,
+		url: suburl + '/character/rankings/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -534,7 +534,7 @@ function getPlayerRankings(rankings){
 function getPlayerPkCount(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings/'+rankings,
+		url: suburl + '/character/rankings/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -553,7 +553,7 @@ function getPlayerPkCount(rankings){
 function getPlayerDuelwin(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings/'+rankings,
+		url: suburl + '/character/rankings/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -574,7 +574,7 @@ function getPlayerDuelwin(rankings){
 function getPlayer2015Top(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings2015/'+rankings,
+		url: suburl + '/character/rankings2015/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\

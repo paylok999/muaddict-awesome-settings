@@ -121,9 +121,14 @@
 	<div id="download-container" class="body-content">
 		<span class="glyphicon glyphicon-download download-icon"></span>
 		<p>Please click the button below to download our game client. If you've go trouble wiht our client, kindly contact us <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>.</p>
-		<a href="http://www.mediafire.com/download/96rl1zkmxkb6t6v/Wigle.rar"> 
-			<button type="submit" class="btn btn-primary">Download Client</button>
+		<a href="http://www.mediafire.com/download/k20czvbbkhw63ir/Wigle1-23-2015.rar"> 
+			<button type="submit" class="btn btn-primary">Download Full Client</button>
 		</a>
+		<p>Game Start button not clickable? Download this path</p>
+		<a href="http://www.mediafire.com/download/sahjpz6hkiyp26l/patch1-23-2015.rar" target="_blank"> 
+			<button type="submit" class="btn btn-primary">Patch 1-23-2015</button>
+		</a>
+		
 		<p>Dot Net version error? Download and Install offline installer below</p>
 		<a href="http://www.microsoft.com/en-us/download/details.aspx?id=40779" target="_blank"> 
 			<button type="submit" class="btn btn-primary">Microsoft .NET Framework 4.5.1 </button>

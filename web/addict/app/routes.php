@@ -17,7 +17,7 @@ Route::get('/', function()
 });
 
 Route::get('/', 'Home@showIndex');
-Route::get('register', 'Home@showIndex');
+Route::get('/register', 'Home@showIndex');
 Route::post('register', 'Register@addUser');
 //Route::get('pluscoin', 'Register@addCoin');
 //Route::get('oldlogin', 'Register@changeOldPassword');

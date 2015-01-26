@@ -4,7 +4,8 @@ class BaseController extends Controller {
 
 	public $data;
 	public $account;
-	
+	public $baseapi = 'http://69.162.107.178/';
+	protected $hash = '8415e91f9f0770f983d3e7dace5c6936';
 	public function __construct(AccountModel $account)
 	{
 		//$this->antiDdos();
@@ -17,6 +18,7 @@ class BaseController extends Controller {
 		}else{
 			$this->data['login'] = 0;
 		}
+		
 		$this->data['onlinecount'] = count($this->getAllOnline()) + 20;
 	}
 	/**
@@ -33,7 +35,9 @@ class BaseController extends Controller {
 	}
 	public function getAllOnline()
 	{
-		return DB::table('memb_stat')->where('ConnectStat', 1)->get();
+		$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/allonline?hash=%s', $this->hash));
+		$response = json_decode($api);
+		return $response;
 		
 	}
 	
@@ -56,5 +60,36 @@ class BaseController extends Controller {
 
 		// Save last request
 		$_SESSION['ddos'] = $hash;
+	}
+	
+	public function CallAPI($method, $url, $datas = false)
+	{
+		$curl = curl_init();
+		switch ($method)
+		{
+			case "POST":
+				curl_setopt($curl, CURLOPT_POST, 1);
+				if ($datas)
+					curl_setopt($curl, CURLOPT_POSTFIELDS, $datas);
+				break;
+			case "PUT":
+				curl_setopt($curl, CURLOPT_PUT, 1);
+				break;
+			case "DELETE":
+				curl_setopt($curl, CURLOPT_URL,$url);
+				curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+				break;
+			default:
+				if ($datas)
+					$url = sprintf("%s?%s", $url, http_build_query($datas));
+		}
+		// Optional Authentication:
+		curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
+		curl_setopt($curl, CURLOPT_USERPWD, "username:password");
+		curl_setopt($curl, CURLOPT_URL, $url);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+		$result = curl_exec($curl);
+		curl_close($curl);
+		return $result;
 	}
 }

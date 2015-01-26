@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group ajax-loader" id="ajax-loader-transfercoinmodal">
 				<div class="col-sm-9 col-sm-offset-4">
-					<span><img src="{{ URL::to('/') }}/img/loading-spin.svg">&nbsp;Transferring Coins. Please wait...</span>
+					<span><img src="http://muphilippines.ph/img/loading-spin.svg">&nbsp;Transferring Coins. Please wait...</span>
 				</div>
 			</div>
 	   </form>
@@ -98,7 +98,7 @@
 		
 			$.ajax({
 				type: 'POST',
-				url: '/account/coins',
+				url: suburl + '/account/coins',
 				data: data,
 				success: function(data){
 					if(data == 1){
