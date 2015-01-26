@@ -89,7 +89,7 @@ $( "#showme, #hideme" ).animate({
 				<div class="col-md-1 item-info">Total</div>
 				<!--<div class="col-md-1 item-info">Add/Remove</div>-->
 			</div>
-			<form action="/shop" method="post">
+			<form action="/index.php/shop" method="post">
 			@foreach($shoppingitems as $key => $item)
 			<div class="row item-wrapper" id="{{$item->id}}" price="{{$item->itemprice }}">
 				<div class="col-md-2 items">{{$item->itemlist}}</div>

@@ -112,7 +112,7 @@ $( "#showme, #hideme" ).animate({
 				<div class="col-md-1 items totalpice">{{$itemprice[$key]}}</div>
 				<div class="col-md-1 buttons">
 					<a href="javascript:void(0)" class="removeme" id="cart-{{$itemid[$key]}}">Remove</a>
-					<span style="display:none;" id="showme{{$itemid[$key]}}">Removing.. <img src="{{ URL::to('/') }}/img/loading-spin.svg"></span>
+					<span style="display:none;" id="showme{{$itemid[$key]}}">Removing.. <img src="http://muphilippines.ph/img/loading-spin.svg"></span>
 				</div>
 				<input type="hidden" id="item_name_{{$item->id}}" name="item_name_{{$key+1}}" value="{{$item->itemlist}}">
 				<input type="hidden" id="amount_{{$item->id}}" name="amount_{{$key+1}}" value="{{$item->itemprice}}">
@@ -121,10 +121,10 @@ $( "#showme, #hideme" ).animate({
 			@endforeach
 			@endif
 			<input type="hidden" name="notify_url" value="{{ URL::to('/') }}/shop/my_ipn">
-			<input type="hidden" name="return" value="{{ URL::to('/') }}/shop/checkout/complete">
+			<input type="hidden" name="return" value="http://muphilippines.ph/index.php/shop/checkout/complete">
 			<input type="hidden" name="rm" value="2">
 			<input type="hidden" name="cbt" value="Return to store">
-			<input type="hidden" name="cancel_return" value="{{ URL::to('/') }}/shop/checkout/cancel">
+			<input type="hidden" name="cancel_return" value="http://muphilippines.ph/index.php/shop/checkout/cancel">
 			<input type="hidden" name="lc" value="PH">
 			<input type="hidden" name="currency_code" value="PHP">
 			@if(!empty($shoppingitems))
@@ -210,7 +210,7 @@ $(function(){
 			}
 			$.ajax({
 				type: 'DELETE',
-				url: '/shop/delete',
+				url: suburl + '/shop/delete',
 				data: data,
 				success: function(data){
 					if(data == 1){

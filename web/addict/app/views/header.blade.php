@@ -5,25 +5,25 @@
 <meta content="Dedicated MU Online Server in the Philippines that is online since 2011. Play with stable and shutdown free MU Server!" name="description">
     <meta content="With over hundreds of veteran players from the old school MU Online Wigle Server" name="keywords">
 <head> 
-<link rel="icon" type="image/ico" href="{{ URL::to('/') }}/img/favicon.ico">
+<link rel="icon" type="image/ico" href="http://muphilippines.ph/img/favicon.ico">
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css">
 <link rel="stylesheet" href="http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.css">
-<link rel="stylesheet" href="{{ URL::to('/') }}/css/style.css">
+<link rel="stylesheet" href="http://muphilippines.ph/css/style.css">
 
 <script src="//oss.maxcdn.com/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://vadikom.github.io/smartmenus/src/jquery.smartmenus.js"></script>
 <script src="http://vadikom.github.io/smartmenus/src/addons/bootstrap/jquery.smartmenus.bootstrap.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
-<script src="{{ URL::to('/') }}/js/scripts.js"></script>
+<script src="http://muphilippines.ph/js/scripts.js"></script>
 
 </head>
 
 <body>
 <div id="main-header">
 <div class="container" id="navigation-img">
-	<img src="{{ URL::to('/') }}/img/main-banner.jpg">
+	<img src="http://muphilippines.ph/img/main-banner.jpg">
 </div>
 
 <div class="container" id="navigation-border">
@@ -79,10 +79,10 @@
 				  @endforeach
 				  <li class="divider"></li>
 				  <li class="dropdown-header">Online Shop</li>
-				<li><a href="{{ URL::to('/') }}/shop">Shop</a></li>
-				<li><a href="{{ URL::to('/') }}/shop/checkout">My Cart</a></li>
+				<li><a href="http://muphilippines.ph/index.php/shop">Shop</a></li>
+				<li><a href="http://muphilippines.ph/index.php/shop/checkout">My Cart</a></li>
 				  <li class="divider"></li>
-				  <li><a href="/logout">Logout</a></li>
+				  <li><a href="/index.php/logout">Logout</a></li>
 				</ul>
 				
 			</li>
