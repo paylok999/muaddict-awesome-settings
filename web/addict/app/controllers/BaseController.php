@@ -4,7 +4,7 @@ class BaseController extends Controller {
 
 	public $data;
 	public $account;
-	public $baseapi = 'http://69.162.107.178/';
+	public $baseapi = 'http://167.114.117.209/'; 
 	protected $hash = '8415e91f9f0770f983d3e7dace5c6936';
 	public function __construct(AccountModel $account)
 	{
@@ -35,7 +35,13 @@ class BaseController extends Controller {
 	}
 	public function getAllOnline()
 	{
-		$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/allonline?hash=%s', $this->hash));
+		try{
+			$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/allonline?hash=%s', $this->hash));
+		}catch(Exception $e){
+			var_dump($e->getMessage());
+			die();
+		}
+		
 		$response = json_decode($api);
 		return $response;
 		

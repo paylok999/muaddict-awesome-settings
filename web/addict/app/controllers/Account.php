@@ -7,33 +7,11 @@ class Account extends BaseController
 	
 	public function changePassword()
 	{
-		$postdata = Input::get();
-		
-		$validator = Validator::make(
-			$postdata,
-			array(
-				'oldpassword' => 'required|min:6|max:10',
-				'newpassword' => 'required|min:6|max:10',
-				'rnewpassword' => 'required|min:6|max:10',
-			)
-		);
-		
-		if($validator->fails()){
-			return 'Something went wrong. Please Check your inputs. Follow the guideline';
-			
-		}else{
-			if($postdata['oldpassword'] != Auth::user()->password){
-				return 'Your input current password did not match on whats in our system. Please try again.';
-			}else if($postdata['newpassword'] != $postdata['rnewpassword']){
-				return 'New password and Repeat new password did not match. Please Try again.';
-			}else{
-				
-				DB::table('memb_info')
-				->where('memb___id', Auth::user()->username)
-				->update(array('memb__pwd' => ($postdata['newpassword'])));
-				return 1;
-			}
-		}
+		$postdata = Input::all();
+		//var_dump($postdata);die();
+		$api = $this->CallAPI('POST', $this->baseapi. sprintf('/api/user/changepassword/%s?hash=%s', Auth::user()->username, $this->hash), $postdata);
+		$response = json_decode($api);
+		return $response->callback;
 	}
 	
 	/* load transfer coin modules*/
@@ -51,6 +29,7 @@ class Account extends BaseController
 	{
 		$postdata = Input::all();
 		$postdata['username'] = Auth::user()->username;
+		//var_dump($postdata);die();
 		$api = $this->CallAPI('POST', $this->baseapi. sprintf('/api/user/cointransfer?hash=%s', $this->hash), $postdata);
 		$response = json_decode($api);
 		return $response->callback;
@@ -87,24 +66,10 @@ class Account extends BaseController
 	public function unstockCharacter()
 	{
 		$charname = Input::get();
-		$validator = Validator::make(
-			$charname,
-			array(
-				'charname' => 'required|min:6|max:10',
-			)
-		);
-		if($validator->fails()){
-			return 'Something went wrong. Please Check your inputs. Follow the guideline. reason: '. $validator->messages();
-			
-		}else{
-			$checkifonline = $this->account->checkAccountIfOnline(Auth::user()->username);
-			if($checkifonline->ConnectStat == 1){
-				return 'Your account is online. Please logout first in game.';
-			}else{
-				DB::table('character')->where('name', $charname['charname'])->update(array('mapnumber' => 0, 'MapPosX' => 140, 'MapPosY' => 127));
-				return 1;
-			}
-		}
+		$charname['username'] = Auth::user()->username;
+		$api = $this->CallAPI('POST', $this->baseapi. sprintf('/api/user/unstock?hash=%s', $this->hash), $charname);
+		$response = json_decode($api);
+		return $response->callback;
 		
 	}
 }

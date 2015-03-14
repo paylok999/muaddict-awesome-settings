@@ -20,5 +20,12 @@ class Character extends BaseController
 
 		}
 	}
+	
+	public function getBloodCastleRankings()
+	{
+			$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/character/bloodcastle?hash=%s', $this->hash));
+			$response = json_decode($api);
+			return $response;
+	}
 
 }

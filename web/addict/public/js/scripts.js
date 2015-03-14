@@ -1,6 +1,7 @@
 var charname;
 var suburl = '/index.php';
 $(document).ready(function() {
+	
     $('#multipleForm').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -221,7 +222,7 @@ $(document).ready(function() {
 		
 			$.ajax({
 				type: 'POST',
-				url: '/account/changepassword',
+				url: suburl + '/account/changepassword',
 				data: data,
 				success: function(data){
 					if(data == 1){
@@ -275,7 +276,7 @@ $(document).ready(function() {
 		}
 		$.ajax({
 			type: 'POST',
-			url: '/account/unstock',
+			url: suburl + '/account/unstock',
 			data: data,
 			success: function(data){
 				if(data == 1){
@@ -408,6 +409,17 @@ $(document).ready(function() {
 	var hashpage = window.location.hash;
 	if(hashpage == ''){
 		hashpage = '#home';
+	}else if(hashpage == '#bloodcastle'){
+	
+		var divelements = $('#bloodcastle-rankings-container');
+		var negativeheight = divelements.height() + 100;
+		divelements.css('margin-top', '-' + negativeheight + 'px');
+		
+		$('.body-content').hide();
+		divelements.show();
+		divelements.animate({ "margin-top": "0px" }, 500);
+		getBloodCastleTop20();
+		
 	}
 	loadpage = hashpage.replace('#', '.');
 	
@@ -449,6 +461,8 @@ $(document).ready(function() {
 		divelements.animate({ "margin-top": "0px" }, 500);
 	});
 	
+	
+	
 	$(document).on('click', '.download-link', function(){
 		
 		var divelements = $('#download-container');
@@ -460,6 +474,7 @@ $(document).ready(function() {
 		divelements.animate({ "margin-top": "0px" }, 500);
 	});
 	
+	
 	$(document).on('click', '.rankings-link', function(){
 		
 		
@@ -468,6 +483,17 @@ $(document).ready(function() {
 		getPlayerDuelwin('winduels');
 		getPlayer2015Top('2015top');
 		var divelements = $('#rankings-container');
+		var negativeheight = divelements.height() + 100;
+		divelements.css('margin-top', '-' + negativeheight + 'px');
+		
+		$('.body-content').hide();
+		divelements.show();
+		divelements.animate({ "margin-top": "0px" }, 500);
+	});
+	
+	$(document).on('click', '.bloodcastle-link', function(){
+		getBloodCastleTop20();
+		var divelements = $('#bloodcastle-rankings-container');
 		var negativeheight = divelements.height() + 100;
 		divelements.css('margin-top', '-' + negativeheight + 'px');
 		
@@ -586,6 +612,25 @@ function getPlayer2015Top(rankings){
 			$('#' + rankings + '-loader').hide();
 		});
 			
+		}
+	});
+	
+}
+
+function getBloodCastleTop20(){
+	$.ajax({
+		type: 'GET',
+		url: suburl + '/character/bloodcastle',
+		success: function(data){
+			$.each(data, function(index, element){
+			var returndata = '<div class="row ranking-details-container">\
+			<div class="col-md-6 bloodcastle-ranking-level">' + element.CharacterName + '</div>\
+			<div class="col-md-6 bloodcastle-ranking-level">' + element.totalpoints + '</div>\
+			</div>';
+			$(returndata).appendTo('.bloodcastle');
+			$('#bloodcastle-rankings-loader').hide();
+		});
+					
 		}
 	});
 	

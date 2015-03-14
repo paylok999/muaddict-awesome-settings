@@ -132,7 +132,16 @@ $( "#showme, #hideme" ).animate({
 				<p>Checkout With</p>
 				<input type="image" src="http://beta.cambridgesdachurch.co.uk/wp-content/uploads/2014/06/paypal-donate-21.png?w=300" style="width:100%">
 			</div>
+			<div style="max-width:150px; text-align:right;margin:20px; float:right">
+				<p>Checkout With</p>
+				<a href="javascript:void(0)" class="bdo-donation"><img src="http://muphilippines.ph/img/BDOnewnew.jpg" style="width:100%"></a>
+			</div>
+			<div style="max-width:150px; text-align:right;margin:20px; float:right">
+				<p>Checkout With</p>
+				<a href="javascript:void(0)" class="western-donation"><img src="http://muphilippines.ph/img/western.jpg" style="width:100%"></a>
+			</div>
 			@endif
+			
 			</form>
 			<div style="clear:both"></div>
 		</div>
@@ -226,6 +235,17 @@ $(function(){
 		}
 		e.preventDefault();
 	})
+	
+	$(document).on('click', '.bdo-donation', function(e){
+		e.preventDefault();
+		$('#bdoModal').modal({show:true});
+	})
+	
+	$(document).on('click', '.western-donation', function(e){
+		e.preventDefault();
+		$('#westernModal').modal({show:true});
+	})
+	
 });
 </script>
 @include('footer')

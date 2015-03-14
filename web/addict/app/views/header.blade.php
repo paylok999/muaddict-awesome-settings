@@ -48,15 +48,14 @@
 			<li class="mainlink"><a href="{{ URL::to('/') }}#register" class="register-link" title="Register with us">REGISTER</a></li>
 			<li class="mainlink"><a href="{{ URL::to('/') }}#download" class="download-link" title="Download Client">DOWNLOADS</a></li>
 			<li class="mainlink"><a href="{{ URL::to('/') }}#rankings" class="rankings-link" title="Player Rankings">RANKINGS</a></li>
-			<li class="mainlink"><a href="javascript:void(0)" title="Community">FORUMS</a></li>
 		@else
 			<li class="mainlink"><a href="#home" class="home-link" title="Home Page">HOME</a></li>
 			<li class="mainlink"><a href="#register" class="register-link" title="Register with us">REGISTER</a></li>
 			<li class="mainlink"><a href="#download" class="download-link" title="Download Client">DOWNLOADS</a></li>
 			<li class="mainlink"><a href="#rankings" class="rankings-link" title="Player Rankings">RANKINGS</a></li>
-			<li class="mainlink"><a href="javascript:void(0)" title="Community">FORUMS</a></li>
 		@endif
 			@if($login == 1)
+			<li class="mainlink"><a href="http://muphilippines.ph/index.php/shop">DONATIONS</a></li>
 			<li class="mainlink">
 				<a href="#account" title="Account" class="account-in dropdown-toggle" data-toggle="dropdown" aria-expanded="false">MY ACCOUNT</a>
 					<ul class="dropdown-menu">
@@ -87,6 +86,7 @@
 				
 			</li>
 			@else
+			<li class="mainlink"><a href="#account" class="account-link" title="Account">DONATIONS</a></li>
 			<li class="mainlink"><a href="#account" class="account-link" title="Account">ACCOUNT</a></li>
 			@endif
 		</ul>

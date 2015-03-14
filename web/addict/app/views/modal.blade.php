@@ -218,3 +218,51 @@
   </div>
 </div>
 <!--end unstock modal -->
+
+<!-- start bdo modal -->
+<div class="modal fade" id="bdoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">BDO Donation</h3>
+      </div>
+      <div class="modal-body" style="text-align:center">
+		<h5>Donation through BDO is available. Please deposit your donation to the information below</h5>
+		<p>00 40 50222143 Savings</p>
+		<p>BDO SM NORTH EDSA</p>
+		<p>JOHN RYAN PATIO</p>
+		
+		<h5>Once done, PM me us on facebook <a href="https://www.facebook.com/johnryan1980" target="_blank">John Ryan</a> and <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a> with the confirmation receipt and we will proceed with the donations</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end bdo modal -->
+
+<!-- start western modal -->
+<div class="modal fade" id="westernModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h3 class="modal-title" id="myModalLabel">Money Transfer Donation</h3>
+      </div>
+      <div class="modal-body" style="text-align:center">
+		<h5>Donation through Money Transfer is available. Western Union, Pera Padala, Palawan, and all money transfer here in Philippines. Just transfer your money with details Below</h5>
+		<p>Mesalina Tanute</p>
+		<p>09328492208</p>
+		<p>15 Pag Asa St. Malibay Pasay City</p>
+		
+		<h5>Once done, PM me us on facebook <a href="https://www.facebook.com/johnryan1980" target="_blank">John Ryan</a> and <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a> with the confirmation receipt/tracking number/transaction code and we will proceed with the donations</h5>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end western modal -->
