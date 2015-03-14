@@ -1,6 +1,7 @@
 var charname;
-
+var suburl = '/index.php';
 $(document).ready(function() {
+	
     $('#multipleForm').bootstrapValidator({
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',
@@ -72,7 +73,7 @@ $(document).ready(function() {
 		
 			$.ajax({
 				type: 'POST',
-				url: '/register',
+				url: suburl + '/register',
 				data: data,
 				success: function(data){
 					if(data == 1){
@@ -141,7 +142,7 @@ $(document).ready(function() {
 			console.log(data.captcha);
 			$.ajax({
 				type: 'POST',
-				url: '/authenticate',
+				url: suburl + '/authenticate',
 				data: data,
 				success: function(data){
 					$('#ajax-loader-login').show();
@@ -221,7 +222,7 @@ $(document).ready(function() {
 		
 			$.ajax({
 				type: 'POST',
-				url: '/account/changepassword',
+				url: suburl + '/account/changepassword',
 				data: data,
 				success: function(data){
 					if(data == 1){
@@ -275,7 +276,7 @@ $(document).ready(function() {
 		}
 		$.ajax({
 			type: 'POST',
-			url: '/account/unstock',
+			url: suburl + '/account/unstock',
 			data: data,
 			success: function(data){
 				if(data == 1){
@@ -302,7 +303,7 @@ $(document).ready(function() {
 		console.log(charname);
 		$.ajax({
 			type: 'GET',
-			url: '/account/character/'+charname,
+			url: suburl + '/account/character/'+charname,
 			success: function(data){
 					$('#resultcharacter').html(data);
 					$('#resultcharacter').show();
@@ -322,7 +323,7 @@ $(document).ready(function() {
 		}
 		$.ajax({
 			type: 'POST',
-			url: '/account/msreset',
+			url: suburl + '/account/msreset',
 			data: data,
 			success: function(data){
 				if(data == 1){
@@ -369,7 +370,7 @@ $(document).ready(function() {
 		}
 		$.ajax({
 			type: 'POST',
-			url: '/account/statreset',
+			url: suburl + '/account/statreset',
 			data: data,
 			success: function(data){
 				if(data == 1){
@@ -393,7 +394,7 @@ $(document).ready(function() {
 		$('#transfercoinModal').modal({show:true});
 		$.ajax({
 			type: 'GET',
-			url: '/account/coins',
+			url: suburl + '/account/coins',
 			success: function(data){
 					$('#resultmodules').html(data);
 					$('#resultmodules').show();
@@ -408,6 +409,17 @@ $(document).ready(function() {
 	var hashpage = window.location.hash;
 	if(hashpage == ''){
 		hashpage = '#home';
+	}else if(hashpage == '#bloodcastle'){
+	
+		var divelements = $('#bloodcastle-rankings-container');
+		var negativeheight = divelements.height() + 100;
+		divelements.css('margin-top', '-' + negativeheight + 'px');
+		
+		$('.body-content').hide();
+		divelements.show();
+		divelements.animate({ "margin-top": "0px" }, 500);
+		getBloodCastleTop20();
+		
 	}
 	loadpage = hashpage.replace('#', '.');
 	
@@ -449,6 +461,8 @@ $(document).ready(function() {
 		divelements.animate({ "margin-top": "0px" }, 500);
 	});
 	
+	
+	
 	$(document).on('click', '.download-link', function(){
 		
 		var divelements = $('#download-container');
@@ -460,6 +474,7 @@ $(document).ready(function() {
 		divelements.animate({ "margin-top": "0px" }, 500);
 	});
 	
+	
 	$(document).on('click', '.rankings-link', function(){
 		
 		
@@ -468,6 +483,17 @@ $(document).ready(function() {
 		getPlayerDuelwin('winduels');
 		getPlayer2015Top('2015top');
 		var divelements = $('#rankings-container');
+		var negativeheight = divelements.height() + 100;
+		divelements.css('margin-top', '-' + negativeheight + 'px');
+		
+		$('.body-content').hide();
+		divelements.show();
+		divelements.animate({ "margin-top": "0px" }, 500);
+	});
+	
+	$(document).on('click', '.bloodcastle-link', function(){
+		getBloodCastleTop20();
+		var divelements = $('#bloodcastle-rankings-container');
 		var negativeheight = divelements.height() + 100;
 		divelements.css('margin-top', '-' + negativeheight + 'px');
 		
@@ -515,7 +541,7 @@ $(document).ready(function() {
 function getPlayerRankings(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings/'+rankings,
+		url: suburl + '/character/rankings/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -534,7 +560,7 @@ function getPlayerRankings(rankings){
 function getPlayerPkCount(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings/'+rankings,
+		url: suburl + '/character/rankings/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -553,7 +579,7 @@ function getPlayerPkCount(rankings){
 function getPlayerDuelwin(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings/'+rankings,
+		url: suburl + '/character/rankings/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -574,7 +600,7 @@ function getPlayerDuelwin(rankings){
 function getPlayer2015Top(rankings){
 	$.ajax({
 		type: 'GET',
-		url: '/character/rankings2015/'+rankings,
+		url: suburl + '/character/rankings2015/'+rankings,
 		success: function(data){
 			$.each(data, function(index, element){
 			var returndata = '<div class="row ranking-details-container">\
@@ -586,6 +612,25 @@ function getPlayer2015Top(rankings){
 			$('#' + rankings + '-loader').hide();
 		});
 			
+		}
+	});
+	
+}
+
+function getBloodCastleTop20(){
+	$.ajax({
+		type: 'GET',
+		url: suburl + '/character/bloodcastle',
+		success: function(data){
+			$.each(data, function(index, element){
+			var returndata = '<div class="row ranking-details-container">\
+			<div class="col-md-6 bloodcastle-ranking-level">' + element.CharacterName + '</div>\
+			<div class="col-md-6 bloodcastle-ranking-level">' + element.totalpoints + '</div>\
+			</div>';
+			$(returndata).appendTo('.bloodcastle');
+			$('#bloodcastle-rankings-loader').hide();
+		});
+					
 		}
 	});
 	

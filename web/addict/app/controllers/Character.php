@@ -6,40 +6,26 @@ class Character extends BaseController
 	
 	public function getTop($order = 'mlevel')
 	{
-		$orderlimit = array('mlevel', 'pkcount', 'winduels');
-		if(!in_array($order, $orderlimit))
-			die();
-		if($order == 'mlevel' || $order == 'winduels'){
-			return DB::table('character')
-			->select(DB::raw('TOP 20 name,mlevel, winduels, loseduels, pkcount'))
-			->where('ctlcode', 0)
-			->orderBy($order, 'desc')
-			//->remember(10)
-			->get();
-		}else{
-			return DB::table('C_PlayerKiller_Info')
-			->select(DB::raw('top 20 count(victim) as victim, killer'))
-			->groupBy('killer')
-			->orderBy('victim', 'desc')
-			->remember(10)
-			->get();
-			
-		}
+		$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/character/rankings/%s?hash=%s', $order, $this->hash));
+		$response = json_decode($api);
+		return $response;
 	}
 	
 	public function get2015TopPlayer($order)
 	{
 		if($order == '2015top'){
-			return DB::table('character')
-			->select(DB::raw('TOP 20 name,mlevel, clevel'))
-			->where('ctlcode', 0)
-			->where('mdate','>=', '2015')
-			->orderBy('clevel', 'desc')
-			->orderBy('mlevel', 'desc')
-			//->remember(10)
-			->get();
+			$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/character/rankings2015/%s?hash=%s', $order, $this->hash));
+			$response = json_decode($api);
+			return $response;
 
 		}
+	}
+	
+	public function getBloodCastleRankings()
+	{
+			$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/character/bloodcastle?hash=%s', $this->hash));
+			$response = json_decode($api);
+			return $response;
 	}
 
 }

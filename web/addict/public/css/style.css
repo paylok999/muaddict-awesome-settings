@@ -221,6 +221,15 @@ a:hover{
 #rankings-container .rankings-area .rankings-loader{
 	margin-top:30px;
 }
+
+.bloodcastle-rankings-wrapper{
+	max-width: 600px;
+	margin: 0 auto;
+}
+.bloodcastle-ranking-level{
+	padding: 10px 0;
+	border-bottom: dotted 1px #ccc;
+}
 /*end rankings*/
 /*user*/
 #userpanel{

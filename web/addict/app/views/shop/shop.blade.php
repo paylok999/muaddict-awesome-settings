@@ -89,7 +89,7 @@ $( "#showme, #hideme" ).animate({
 				<div class="col-md-1 item-info">Total</div>
 				<!--<div class="col-md-1 item-info">Add/Remove</div>-->
 			</div>
-			<form action="/shop" method="post">
+			<form action="/index.php/shop" method="post">
 			@foreach($shoppingitems as $key => $item)
 			<div class="row item-wrapper" id="{{$item->id}}" price="{{$item->itemprice }}">
 				<div class="col-md-2 items">{{$item->itemlist}}</div>
@@ -105,11 +105,20 @@ $( "#showme, #hideme" ).animate({
 				<div class="col-md-1 items totalpice">0</div>
 			</div>
 			@endforeach
+			
 			<div style="max-width:150px; text-align:right;margin:20px; float:right">
 				<button class="btn btn-primary">Continue to Checkout</button>
 			</div>
 			</div>
 			</form>
+			<div style="max-width:150px; text-align:right;margin:20px; float:right">
+				<p>Checkout With</p>
+				<a href="javascript:void(0)" class="bdo-donation"><img src="http://muphilippines.ph/img/BDOnewnew.jpg" style="width:100%"></a>
+			</div>
+			<div style="max-width:150px; text-align:right;margin:20px; float:right">
+				<p>Checkout With</p>
+				<a href="javascript:void(0)" class="western-donation"><img src="http://muphilippines.ph/img/western.jpg" style="width:100%"></a>
+			</div>
 			<div style="clear:both"></div>
 		</div>
 	</div>
@@ -154,7 +163,15 @@ $(function(){
 	});
 	
 	
+	$(document).on('click', '.bdo-donation', function(e){
+		e.preventDefault();
+		$('#bdoModal').modal({show:true});
+	})
 	
+	$(document).on('click', '.western-donation', function(e){
+		e.preventDefault();
+		$('#westernModal').modal({show:true});
+	})
 });
 </script>
 

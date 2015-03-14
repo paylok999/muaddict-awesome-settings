@@ -4,7 +4,9 @@ class Shop extends BaseController
 {
 	public function show()
 	{
-		$this->data['shoppingitems'] = $this->getAllItems();
+		$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/shop/allitems?hash=%s', $this->hash));
+		$response = json_decode($api);
+		$this->data['shoppingitems'] = $response;
 		return View::make('shop/shop', $this->data);
 	}
 	
@@ -20,26 +22,12 @@ class Shop extends BaseController
 	
 	public function getAllItemsByUsername()
 	{
-		$getcheckout = DB::table('onlineshopcheckout')
-		->where('username', Auth::user()->username)
-		->orderBy('id', 'asc')->get();
-		
-		$allitems = array();
-		$itemcount = array();
-		$itemprice = array();
-		$itemid = array();
-		foreach($getcheckout as $checkout)
-		{
-			$items = DB::table('onlineshop')->where('id', $checkout->cartnumber)->first();
-			$allitems[] = $items;
-			$itemcount[] = $checkout->cartcount;
-			$itemprice[] = $checkout->cartcount * $items->itemprice;
-			$itemid[] = $checkout->id;
-		}
-		$this->data['shoppingitems'] = $allitems;
-		$this->data['itemcount'] = $itemcount;
-		$this->data['itemprice'] = $itemprice;
-		$this->data['itemid'] = $itemid;
+		$api = $this->CallAPI('GET', $this->baseapi. sprintf('/api/shop/allitemsbyusername/%s?hash=%s', Auth::user()->username, $this->hash));
+		$response = json_decode($api);
+		$this->data['shoppingitems'] = $response->shoppingitems;
+		$this->data['itemcount'] = $response->itemcount;
+		$this->data['itemprice'] = $response->itemprice;
+		$this->data['itemid'] = $response->itemid;
 		return View::make('shop/checkout', $this->data);
 	}
 	
@@ -50,15 +38,14 @@ class Shop extends BaseController
 		{
 			if($inputs['cartcount'][$key] <= 0){
 			}else{
-				DB::table('onlineshopcheckout')
-				->insert(
-					array(
+				$data = array(
 						'username' =>Auth::user()->username, 
 						'cartnumber' => $input, 
 						'cartcount' => $inputs['cartcount'][$key], 
 						'status' => 0
-					)
-				);
+					);
+				$api = $this->CallAPI('POST', $this->baseapi. sprintf('/api/shop/additem?hash=%s', $this->hash), $data);
+				$response = json_decode($api);
 				
 			}
 		}
@@ -67,11 +54,9 @@ class Shop extends BaseController
 	
 	public function deleteItem()
 	{
-		$itemid = Input::get('cartnumber');
-		//var_dump($itemid);
-		DB::table('onlineshopcheckout')->where('id', $itemid)->delete();
-		return 1;
-		
+		$api = $this->CallAPI('DELETE', $this->baseapi. sprintf('/api/shop/delete/%s?hash=%s', Input::get('cartnumber'), $this->hash));
+		$response = json_decode($api);
+		return $response;
 	}
 	
 	public function cancel()

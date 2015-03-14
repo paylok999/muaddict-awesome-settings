@@ -30,7 +30,7 @@
 			</div>
 			<div class="form-group ajax-loader" id="ajax-loader-transfercoinmodal">
 				<div class="col-sm-9 col-sm-offset-4">
-					<span><img src="{{ URL::to('/') }}/img/loading-spin.svg">&nbsp;Transferring Coins. Please wait...</span>
+					<span><img src="http://muphilippines.ph/img/loading-spin.svg">&nbsp;Transferring Coins. Please wait...</span>
 				</div>
 			</div>
 	   </form>
@@ -52,9 +52,9 @@
                         message: 'Receiver username is required'
                     },
 					stringLength: {
-						min: 6,
+						min: 5,
 						max: 10,
-						message: 'Receiver username should be minimum of 6 and max of 10 characters'
+						message: 'Receiver username should be minimum of 5 and max of 10 characters'
 					}
                 }
             },
@@ -74,9 +74,9 @@
                         message: 'Your password is required'
                     },
 					stringLength: {
-						min: 6,
+						min: 5,
 						max: 10,
-						message: 'Your password should be minimum of 6 and max of 10 characters'
+						message: 'Your password should be minimum of 5 and max of 10 characters'
 					}
                 }
             },
@@ -98,7 +98,7 @@
 		
 			$.ajax({
 				type: 'POST',
-				url: '/account/coins',
+				url: suburl + '/account/coins',
 				data: data,
 				success: function(data){
 					if(data == 1){

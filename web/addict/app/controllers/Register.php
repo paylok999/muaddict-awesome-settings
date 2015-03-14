@@ -10,97 +10,10 @@ class Register extends BaseController
 	
 	public function addUser()
 	{
-		
-		
 		$postdata = Input::get();
-		
-		$validator = Validator::make(
-			$postdata,
-			array(
-				'username' => 'required|min:6|max:10',
-				'password' => 'required|min:6|max:10',
-				'email' => 'required|email|max:50',
-				'secreta' => 'required||min:4|max:50',
-			)
-		);
-		
-		if($validator->fails()){
-			return 'Something went wrong. Please Check your inputs. Follow the guideline';
-			
-		}else{
-			$checkuser = DB::table('memb_info')
-			->where('memb___id', $postdata['username'])
-			->orwhere('mail_addr', $postdata['email'])
-			->get();
-			if(!empty($checkuser)){
-				return 'Username or Emaill address exist. Please Try again';
-				
-			}else{
-				$userinput = array(
-					'memb___id' => Input::get('username'),
-					'memb_name' => Input::get('username'),
-					'memb__pwd' => Input::get('password'),
-					'mail_addr' => Input::get('email'),
-					'SecretQuestion' => Input::get('secretq'),
-					'SecretAnswer' => Input::get('secreta'),
-				);
-				
-				DB::table('memb_info')->insert($userinput);
-				
-				$seals = array(
-					'AccountID' => Input::get('username'),
-					'AuthCode' =>0,
-					'UniqueID1' => 673,
-					'UniqueID2' => 10,
-					'UniqueID3' => 15,
-					'InventoryType' => 1,
-				);
-				
-				$sealshealing = array(
-					'AccountID' => Input::get('username'),
-					'AuthCode' =>0,
-					'UniqueID1' => 673,
-					'UniqueID2' => 38,
-					'UniqueID3' => 63,
-					'InventoryType' => 1,
-				);
-				
-				$sealspet = array(
-					'AccountID' => Input::get('username'),
-					'AuthCode' =>0,
-					'UniqueID1' => 673,
-					'UniqueID2' => 61,
-					'UniqueID3' => 102,
-					'InventoryType' => 1,
-				);
-				
-				$sealsring = array(
-					'AccountID' => Input::get('username'),
-					'AuthCode' =>0,
-					'UniqueID1' => 673,
-					'UniqueID2' => 59,
-					'UniqueID3' => 98,
-					'InventoryType' => 1,
-				);
-				
-				$masterseals = array(
-					'AccountID' => Input::get('username'),
-					'AuthCode' =>0,
-					'UniqueID1' => 673,
-					'UniqueID2' => 51,
-					'UniqueID3' => 81,
-					'InventoryType' => 1,
-				);
-				
-				DB::table('T_InGameShop_Items')->insert($seals);
-				DB::table('T_InGameShop_Items')->insert($sealshealing);
-				DB::table('T_InGameShop_Items')->insert($sealspet);
-				DB::table('T_InGameShop_Items')->insert($sealsring);
-				DB::table('T_InGameShop_Items')->insert($masterseals);
-				return 1;
-			}
-		}
-		
+		$api = $this->CallAPI('POST', $this->baseapi. sprintf('/api/register?hash=%s', $this->hash), $postdata);
+		$response = json_decode($api);
+		return $response->callback;
 	}
 	
 	public function addCoin(){

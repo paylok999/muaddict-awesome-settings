@@ -5,6 +5,40 @@
 	<div id="home-container" class="body-content">
 		<h1> Announcement</h1>
 		<div class="announcement-wrapper">
+		<h2>Blood Castle Master</h2>
+		<h3>Author: Gatsby</h3> 
+		<h3>Date: February 8, 2015</h3>
+			<p>We will be having a month long Blood Castle event.</p>
+			<p>What would be the prizes?</p>
+			<ul>
+			<li>1st - Archangel Weapon+13+4option+luck+28 of your choice</li>
+			<li>2nd - Archangel Weapon+13+3option+luck+28 of your choice</li>
+			<li>3rd - Archangel Weapon+13+2option+luck+28 of your choice</li>
+			<li>4th - Any weapon+13+L (no exc 380 item no AA lvl3seed)</li>
+			<li>5th - Any weapon+13+L (no exc 380 item no AA lvl3seed)</li>
+			<li>6th-20th - Consolation prizes of 150 Jewels of Bless, Soul, Life, Chaos, Creation</li>
+			</ul>
+			<p>So what are you waiting for? Get online now and pawned that blood castle!</p>
+			<p>Start date would be on February 16, 2015 and will end March 16, 2015.</p>
+			<p><a href="https://www.facebook.com/groups/muphilseason6/" target="_blank"> Check our official facebook group</a></p>
+			<p>Blood Castle Rankings can be found <a href="{{ URL::to('/') }}#bloodcastle" class="bloodcastle-link">here</a></p>
+			<p>Account concern, contact me <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>. Other technical concern, you may also contact me.</p>
+		</div>
+		<div class="announcement-wrapper">
+		<h2>Season of love</h2>
+		<h3>Author: Gatsby</h3> 
+		<h3>Date: February 8, 2015</h3>
+			<p>Ready yourself, as valentines days are comming, Heart of Love will start dropping!</p>
+			<p>What does it drops?</p>
+			<ul>
+			<li>High level excellent armory with 2 excellent options</li>
+			<li>High level excellent weapons with 2 excellent options</li>
+			</ul>
+			<p>Drop starts at February 9 and ends on end of month</p>
+			<p>So what are you waiting for? Get online now!</p>
+			<p>Account concern, contact me <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>. Other technical concern, you may also contact me.</p>
+		</div>
+		<div class="announcement-wrapper">
 		<h2>Weekend Warrior</h2>
 		<h3>Author: Gatsby</h3> 
 		<h3>Date: January 9, 2015</h3>
@@ -121,9 +155,14 @@
 	<div id="download-container" class="body-content">
 		<span class="glyphicon glyphicon-download download-icon"></span>
 		<p>Please click the button below to download our game client. If you've go trouble wiht our client, kindly contact us <a href="https://www.facebook.com/profile.php?id=100008642380772" target="_blank">Gatsby</a>.</p>
-		<a href="http://www.mediafire.com/download/96rl1zkmxkb6t6v/Wigle.rar"> 
-			<button type="submit" class="btn btn-primary">Download Client</button>
+		<a href="http://www.mediafire.com/download/npnykgbc4897z5k/Wigle_Client_Full-2-7-2015.rar"> 
+			<button type="submit" class="btn btn-primary">Download Full Client</button>
 		</a>
+		<p>Disconnected in game? Download the latest patch and extract to your MU Folder</p>
+		<a href="http://www.mediafire.com/download/bg7w03kvdtda3dj/patch-2-5-2015.rar" target="_blank"> 
+			<button type="submit" class="btn btn-primary">Patch 2-5-2015</button>
+		</a>
+		
 		<p>Dot Net version error? Download and Install offline installer below</p>
 		<a href="http://www.microsoft.com/en-us/download/details.aspx?id=40779" target="_blank"> 
 			<button type="submit" class="btn btn-primary">Microsoft .NET Framework 4.5.1 </button>
@@ -185,6 +224,24 @@
 						<span>Loading...</span>
 					</div>
 			 </div>
+		</div>
+	</div>
+	
+	<div id="bloodcastle-rankings-container" class="body-content">
+		<h1>Top 20 Blood Castle Players</h1>
+		<p>Please wait atleast 10 minutes to propagate your scores</p>
+		<div class="row bloodcastle-rankings-wrapper">
+			<div class="col-md-12 rankings-area bloodcastle">
+				<h3>Blood Castle Master</h3>
+				<div class="row ranking-details-container">
+					<div class="col-md-6 ranking-name">Name</div>
+					<div class="col-md-6 ranking-name">Points</div>
+				</div>
+				<div class="rankings-loader" id="bloodcastle-rankings-loader">
+					<img src="{{ URL::to('/') }}/img/loading-spin.svg">
+					<span>Loading...</span>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -17,7 +17,7 @@ Route::get('/', function()
 });
 
 Route::get('/', 'Home@showIndex');
-Route::get('register', 'Home@showIndex');
+Route::get('/register', 'Home@showIndex');
 Route::post('register', 'Register@addUser');
 //Route::get('pluscoin', 'Register@addCoin');
 //Route::get('oldlogin', 'Register@changeOldPassword');
@@ -27,6 +27,7 @@ Route::post('authenticate', 'Authenticate@login');
 Route::get('logout', 'Authenticate@logout');
 Route::get('character/rankings/{order?}', 'Character@getTop');
 Route::get('character/rankings2015/{order?}', 'Character@get2015TopPlayer');
+Route::get('character/bloodcastle', 'Character@getBloodCastleRankings');
 
 /*authenticated user */
 Route::group(array('before' => 'auth'), function()
