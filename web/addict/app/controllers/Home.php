@@ -7,5 +7,10 @@ class Home extends BaseController
 	{
 		return View::make('index', $this->data);
 	}
+	
+	public function testmethod()
+	{
+		return 'test';
+	}
 
 }

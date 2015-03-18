@@ -11,12 +11,13 @@
 |
 */
 
-Route::get('/', function()
+/*Route::get('/', function()
 {
 	return View::make('hello');
-});
+});*/
 
 Route::get('/', 'Home@showIndex');
+Route::get('test', 'Home@testmethod');
 Route::get('/register', 'Home@showIndex');
 Route::post('register', 'Register@addUser');
 //Route::get('pluscoin', 'Register@addCoin');
